@@ -1,0 +1,7092 @@
+/*
+  Tarun Shivakuar, Ashwath Kallam, Varun Wanjari
+  1/20/2024
+  CSS code that provides style to the overall game making sure that everything is centerd to its correct position
+  such as the panels and tables. It also make sure that the boards for each level (Easy, Intermediate, and Expert)
+  are all in its respective areas (Easy: 9x9, Intermediate: 16x16, and Expert: 22x22) and not all over the place 
+  disorganized
+*/
+
+/* Set default font and text size adjustments for HTML */
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+/* Remove default margin from the body */
+body {
+  margin: 0;
+}
+
+/* Set display property for various elements */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* Set display property for media elements */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* Hide audio not having controls */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* Hide hidden elements and templates */
+[hidden],
+template {
+  display: none;
+}
+
+/* Set background color for anchor tags */
+a {
+  background-color: transparent;
+}
+
+/* Remove outline from active or hovered anchor tags */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Set border bottom for abbreviated terms */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* Set font weight for bold text */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* Set font style for defined terms */
+dfn {
+  font-style: italic;
+}
+
+/* Set margin and font size for h1 */
+h1 {
+  margin: .67em 0;
+  font-size: 2em;
+}
+
+/* Set color and background for marked text */
+mark {
+  color: #000;
+  background: #ff0;
+}
+
+/* Set font size for small text */
+small {
+  font-size: 80%;
+}
+
+/* Set position, font size, line height and vertical align for subscripts and superscripts */
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+/* Set top position for superscripts */
+sup {
+  top: -.5em;
+}
+
+/* Set bottom position for subscripts */
+sub {
+  bottom: -.25em;
+}
+
+/* Remove border from images */
+img {
+  border: 0;
+}
+
+/* Set overflow for SVGs */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Set margin for figures */
+figure {
+  margin: 1em 40px;
+}
+
+/* Set height and box sizing for horizontal rules */
+hr {
+  height: 0;
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+/* Set overflow for preformatted text */
+pre {
+  overflow: auto;
+}
+
+/* Set font family and size for code, keyboard input, preformatted text, and sample output */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Set margin, font, and color for form elements */
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+/* Set overflow for buttons */
+button {
+  overflow: visible;
+}
+
+/* Remove text transform from buttons and select elements */
+button,
+select {
+  text-transform: none;
+}
+
+/* Set appearance and cursor for buttons and certain input types */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* Set cursor for disabled buttons and inputs */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/* Remove padding and border from button focus inner and input focus inner in Firefox */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* Set line height for inputs */
+input {
+  line-height: normal;
+}
+
+/* Set box sizing and padding for checkbox and radio inputs */
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+/* Set height for number input spin buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* Set box sizing and appearance for search inputs */
+input[type="search"] {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+  -webkit-appearance: textfield;
+}
+
+/* Set appearance for search input cancel button and search decoration in Webkit browsers */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* Set padding, margin, and border for fieldsets */
+fieldset {
+  padding: .35em .625em .75em;
+  margin: 0 2px;
+  border: 1px solid #c0c0c0;
+}
+
+/* Remove padding and border from legends */
+legend {
+  padding: 0;
+  border: 0;
+}
+
+/* Set overflow for textareas */
+textarea {
+  overflow: auto;
+}
+
+/* Set font weight for optgroups */
+optgroup {
+  font-weight: bold;
+}
+
+/* Set border spacing and collapse for tables */
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+/* Remove padding from table cells */
+td,
+th {
+  padding: 0;
+}
+
+/* Set print styles */
+@media print {
+  /* Set color, text shadow, background, and box shadow for all elements and pseudo-elements */
+  *,
+  *:before,
+  *:after {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: transparent !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+  }
+
+  /* Set text decoration for anchor tags and visited anchor tags */
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  /* Add URL after href attribute in anchor tags */
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  /* Add title after title attribute in abbreviated terms */
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* Remove content after anchor tags with href attribute starting with # or javascript: */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  /* Set border and page break inside for preformatted text and blockquotes */
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /* Set display for table headers */
+  thead {
+    display: table-header-group;
+  }
+
+  /* Set page break inside for table rows and images */
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  /* Set max width for images */
+  img {
+    max-width: 100% !important;
+  }
+
+  /* Set orphans and widows for paragraphs, h2, and h3 */
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Set page break after for h2 and h3 */
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  /* Hide .navbar */
+  .navbar {
+    display: none;
+  }
+
+  /* Set border top color for .btn > .caret and .dropup > .btn > .caret */
+  .btn > .caret,
+  .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+
+  /* Set border for .label */
+  .label {
+    border: 1px solid #000;
+  }
+
+  /* Set border collapse for .table */
+  .table {
+    border-collapse: collapse !important;
+  }
+
+  /* Set background color for .table td and .table th */
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+
+  /* Set border for .table-bordered th and .table-bordered td */
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+}
+
+/* Set font face for Glyphicons Halflings */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+/* Set properties for .glyphicon class */
+.glyphicon {
+  position: relative; /* Position relative to its normal position */
+  top: 1px; /* Move element 1px from the top */
+  display: inline-block; /* Display as inline-block */
+  font-family: 'Glyphicons Halflings'; /* Set font family */
+  font-style: normal; /* Set font style to normal */
+  font-weight: normal; /* Set font weight to normal */
+  line-height: 1; /* Set line height to 1 */
+
+  /* Set font smoothing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Set content for .glyphicon-asterisk:before pseudo-element */
+.glyphicon-asterisk:before {
+  content: "\002a";
+}
+
+/* Set content for .glyphicon-plus:before pseudo-element */
+.glyphicon-plus:before {
+  content: "\002b";
+}
+
+/* Set content for .glyphicon-euro:before and .glyphicon-eur:before pseudo-elements */
+.glyphicon-euro:before,
+.glyphicon-eur:before {
+  content: "\20ac";
+}
+
+/* Set content for .glyphicon-minus:before pseudo-element */
+.glyphicon-minus:before {
+  content: "\2212";
+}
+
+/* Set content for .glyphicon-cloud:before pseudo-element */
+.glyphicon-cloud:before {
+  content: "\2601";
+}
+
+/* Set content for .glyphicon-envelope:before pseudo-element */
+.glyphicon-envelope:before {
+  content: "\2709";
+}
+
+/* Set content for .glyphicon-pencil:before pseudo-element */
+.glyphicon-pencil:before {
+  content: "\270f";
+}
+
+/* Set content for .glyphicon-glass:before pseudo-element */
+.glyphicon-glass:before {
+  content: "\e001";
+}
+
+/* Set content for .glyphicon-music:before pseudo-element */
+.glyphicon-music:before {
+  content: "\e002";
+}
+
+/* Set content for .glyphicon-search:before pseudo-element */
+.glyphicon-search:before {
+  content: "\e003";
+}
+
+/* Set content for .glyphicon-heart:before pseudo-element */
+.glyphicon-heart:before {
+  content: "\e005";
+}
+
+/* Set content for .glyphicon-star:before pseudo-element */
+.glyphicon-star:before {
+  content: "\e006";
+}
+
+/* Set content for .glyphicon-star-empty:before pseudo-element */
+.glyphicon-star-empty:before {
+  content: "\e007";
+}
+
+/* Set content for .glyphicon-user:before pseudo-element */
+.glyphicon-user:before {
+  content: "\e008";
+}
+
+/* Set content for .glyphicon-film:before pseudo-element */
+.glyphicon-film:before {
+  content: "\e009";
+}
+
+/* Set content for .glyphicon-th-large:before pseudo-element */
+.glyphicon-th-large:before {
+  content: "\e010";
+}
+
+/* Set content for .glyphicon-th:before pseudo-element */
+.glyphicon-th:before {
+  content: "\e011";
+}
+
+/* Set content for .glyphicon-th-list:before pseudo-element */
+.glyphicon-th-list:before {
+  content: "\e012";
+}
+
+/* Set content for .glyphicon-ok:before pseudo-element */
+.glyphicon-ok:before {
+  content: "\e013";
+}
+
+/* Set content for .glyphicon-remove:before pseudo-element */
+.glyphicon-remove:before {
+  content: "\e014";
+}
+
+/* Set content for .glyphicon-zoom-in:before pseudo-element */
+.glyphicon-zoom-in:before {
+  content: "\e015";
+}
+
+/* Set content for .glyphicon-zoom-out:before pseudo-element */
+.glyphicon-zoom-out:before {
+  content: "\e016";
+}
+
+/* Set content for .glyphicon-off:before pseudo-element */
+.glyphicon-off:before {
+  content: "\e017";
+}
+
+/* Set content for .glyphicon-signal:before pseudo-element */
+.glyphicon-signal:before {
+  content: "\e018";
+}
+
+/* Set content for .glyphicon-cog:before pseudo-element */
+.glyphicon-cog:before {
+  content: "\e019";
+}
+
+/* Set content for .glyphicon-trash:before pseudo-element */
+.glyphicon-trash:before {
+  content: "\e020";
+}
+
+/* Set content for .glyphicon-home:before pseudo-element */
+.glyphicon-home:before {
+  content: "\e021";
+}
+
+/* Set content for .glyphicon-file:before pseudo-element */
+.glyphicon-file:before {
+  content: "\e022";
+}
+
+/* Set content for .glyphicon-time:before pseudo-element */
+.glyphicon-time:before {
+  content: "\e023";
+}
+
+/* Set content for .glyphicon-road:before pseudo-element */
+.glyphicon-road:before {
+  content: "\e024";
+}
+
+/* Set content for .glyphicon-download-alt:before pseudo-element */
+.glyphicon-download-alt:before {
+  content: "\e025";
+}
+
+/* Set content for .glyphicon-download:before pseudo-element */
+.glyphicon-download:before {
+  content: "\e026";
+}
+
+/* Set content for .glyphicon-upload:before pseudo-element */
+.glyphicon-upload:before {
+  content: "\e027";
+}
+
+/* Set content for .glyphicon-inbox:before pseudo-element */
+.glyphicon-inbox:before {
+  content: "\e028";
+}
+
+/* Set content for .glyphicon-play-circle:before pseudo-element */
+.glyphicon-play-circle:before {
+  content: "\e029";
+}
+
+/* Set content for .glyphicon-repeat:before pseudo-element */
+.glyphicon-repeat:before {
+  content: "\e030";
+}
+
+/* Set content for .glyphicon-refresh:before pseudo-element */
+.glyphicon-refresh:before {
+  content: "\e031";
+}
+
+/* Set content for .glyphicon-list-alt:before pseudo-element */
+.glyphicon-list-alt:before {
+  content: "\e032";
+}
+
+/* Set content for .glyphicon-lock:before pseudo-element */
+.glyphicon-lock:before {
+  content: "\e033";
+}
+
+/* Set content for .glyphicon-flag:before pseudo-element */
+.glyphicon-flag:before {
+  content: "\e034";
+}
+
+/* Set content for .glyphicon-headphones:before pseudo-element */
+.glyphicon-headphones:before {
+  content: "\e035";
+}
+
+/* Set content for .glyphicon-volume-off:before pseudo-element */
+.glyphicon-volume-off:before {
+  content: "\e036";
+}
+
+/* Set content for .glyphicon-volume-down:before pseudo-element */
+.glyphicon-volume-down:before {
+  content: "\e037";
+}
+
+/* Set content for .glyphicon-volume-up:before pseudo-element */
+.glyphicon-volume-up:before {
+  content: "\e038";
+}
+
+/* Set content for .glyphicon-qrcode:before pseudo-element */
+.glyphicon-qrcode:before {
+  content: "\e039";
+}
+
+/* Set content for .glyphicon-barcode:before pseudo-element */
+.glyphicon-barcode:before {
+  content: "\e040";
+}
+
+/* Set content for .glyphicon-tag:before pseudo-element */
+.glyphicon-tag:before {
+  content: "\e041";
+}
+
+/* Set content for .glyphicon-tags:before pseudo-element */
+.glyphicon-tags:before {
+  content: "\e042";
+}
+
+/* Set content for .glyphicon-book:before pseudo-element */
+.glyphicon-book:before {
+  content: "\e043";
+}
+
+/* Set content for .glyphicon-bookmark:before pseudo-element */
+.glyphicon-bookmark:before {
+  content: "\e044";
+}
+
+/* Set content for .glyphicon-print:before pseudo-element */
+.glyphicon-print:before {
+  content: "\e045";
+}
+
+/* Set content for .glyphicon-camera:before pseudo-element */
+.glyphicon-camera:before {
+  content: "\e046";
+}
+
+/* Set content for .glyphicon-font:before pseudo-element */
+.glyphicon-font:before {
+  content: "\e047";
+}
+
+/* Set content for .glyphicon-bold:before pseudo-element */
+.glyphicon-bold:before {
+  content: "\e048";
+}
+
+/* Set content for .glyphicon-italic:before pseudo-element */
+.glyphicon-italic:before {
+  content: "\e049";
+}
+
+/* Set content for .glyphicon-text-height:before pseudo-element */
+.glyphicon-text-height:before {
+  content: "\e050";
+}
+
+/* Set content for .glyphicon-text-width:before pseudo-element */
+.glyphicon-text-width:before {
+  content: "\e051";
+}
+
+/* Set content for .glyphicon-align-left:before pseudo-element */
+.glyphicon-align-left:before {
+  content: "\e052";
+}
+
+/* Set content for .glyphicon-align-center:before pseudo-element */
+.glyphicon-align-center:before {
+  content: "\e053";
+}
+
+/* Set content for .glyphicon-align-right:before pseudo-element */
+.glyphicon-align-right:before {
+  content: "\e054";
+}
+
+/* Set content for .glyphicon-align-justify:before pseudo-element */
+.glyphicon-align-justify:before {
+  content: "\e055";
+}
+
+/* Set content for .glyphicon-list:before pseudo-element */
+.glyphicon-list:before {
+  content: "\e056";
+}
+
+/* Set content for .glyphicon-indent-left:before pseudo-element */
+.glyphicon-indent-left:before {
+  content: "\e057";
+}
+
+/* Set content for .glyphicon-indent-right:before pseudo-element */
+.glyphicon-indent-right:before {
+  content: "\e058";
+}
+
+/* Set content for .glyphicon-facetime-video:before pseudo-element */
+.glyphicon-facetime-video:before {
+  content: "\e059";
+}
+
+/* Set content for .glyphicon-picture:before pseudo-element */
+.glyphicon-picture:before {
+  content: "\e060";
+}
+
+/* Set content for .glyphicon-map-marker:before pseudo-element */
+.glyphicon-map-marker:before {
+  content: "\e062";
+}
+
+/* Set content for .glyphicon-adjust:before pseudo-element */
+.glyphicon-adjust:before {
+  content: "\e063";
+}
+
+/* Set content for .glyphicon-tint:before pseudo-element */
+.glyphicon-tint:before {
+  content: "\e064";
+}
+
+/* Set content for .glyphicon-edit:before pseudo-element */
+.glyphicon-edit:before {
+  content: "\e065";
+}
+
+/* Set content for .glyphicon-share:before pseudo-element */
+.glyphicon-share:before {
+  content: "\e066";
+}
+
+/* Set content for .glyphicon-check:before pseudo-element */
+.glyphicon-check:before {
+  content: "\e067";
+}
+
+/* Set content for .glyphicon-move:before pseudo-element */
+.glyphicon-move:before {
+  content: "\e068";
+}
+
+/* Set content for .glyphicon-step-backward:before pseudo-element */
+.glyphicon-step-backward:before {
+  content: "\e069";
+}
+
+/* Set content for .glyphicon-fast-backward:before pseudo-element */
+.glyphicon-fast-backward:before {
+  content: "\e070";
+}
+
+/* Set content for .glyphicon-backward:before pseudo-element */
+.glyphicon-backward:before {
+  content: "\e071";
+}
+
+/* Set content for .glyphicon-play:before pseudo-element */
+.glyphicon-play:before {
+  content: "\e072";
+}
+
+/* Set content for .glyphicon-pause:before pseudo-element */
+.glyphicon-pause:before {
+  content: "\e073";
+}
+
+/* Set content for .glyphicon-stop:before pseudo-element */
+.glyphicon-stop:before {
+  content: "\e074";
+}
+
+/* Set content for .glyphicon-forward:before pseudo-element */
+.glyphicon-forward:before {
+  content: "\e075";
+}
+
+/* Set content for .glyphicon-fast-forward:before pseudo-element */
+.glyphicon-fast-forward:before {
+  content: "\e076";
+}
+
+/* Set content for .glyphicon-step-forward:before pseudo-element */
+.glyphicon-step-forward:before {
+  content: "\e077";
+}
+
+/* Set content for .glyphicon-eject:before pseudo-element */
+.glyphicon-eject:before {
+  content: "\e078";
+}
+
+/* Set content for .glyphicon-chevron-left:before pseudo-element */
+.glyphicon-chevron-left:before {
+  content: "\e079";
+}
+
+/* Set content for .glyphicon-chevron-right:before pseudo-element */
+.glyphicon-chevron-right:before {
+  content: "\e080";
+}
+
+/* Set content for .glyphicon-plus-sign:before pseudo-element */
+.glyphicon-plus-sign:before {
+  content: "\e081";
+}
+
+/* Set content for .glyphicon-minus-sign:before pseudo-element */
+.glyphicon-minus-sign:before {
+  content: "\e082";
+}
+
+/* Set content for .glyphicon-remove-sign:before pseudo-element */
+.glyphicon-remove-sign:before {
+  content: "\e083";
+}
+
+/* Set content for .glyphicon-ok-sign:before pseudo-element */
+.glyphicon-ok-sign:before {
+  content: "\e084";
+}
+
+/* Set content for .glyphicon-question-sign:before pseudo-element */
+.glyphicon-question-sign:before {
+  content: "\e085";
+}
+
+/* Set content for .glyphicon-info-sign:before pseudo-element */
+.glyphicon-info-sign:before {
+  content: "\e086";
+}
+
+/* Set content for .glyphicon-screenshot:before pseudo-element */
+.glyphicon-screenshot:before {
+  content: "\e087";
+}
+
+/* Set content for .glyphicon-remove-circle:before pseudo-element */
+.glyphicon-remove-circle:before {
+  content: "\e088";
+}
+
+/* Set content for .glyphicon-ok-circle:before pseudo-element */
+.glyphicon-ok-circle:before {
+  content: "\e089";
+}
+
+/* Set content for .glyphicon-ban-circle:before pseudo-element */
+.glyphicon-ban-circle:before {
+  content: "\e090";
+}
+
+/* Set content for .glyphicon-arrow-left:before pseudo-element */
+.glyphicon-arrow-left:before {
+  content: "\e091";
+}
+
+/* Set content for .glyphicon-arrow-right:before pseudo-element */
+.glyphicon-arrow-right:before {
+  content: "\e092";
+}
+
+/* Set content for .glyphicon-arrow-up:before pseudo-element */
+.glyphicon-arrow-up:before {
+  content: "\e093";
+}
+
+/* Set content for .glyphicon-arrow-down:before pseudo-element */
+.glyphicon-arrow-down:before {
+  content: "\e094";
+}
+
+/* Set content for .glyphicon-share-alt:before pseudo-element */
+.glyphicon-share-alt:before {
+  content: "\e095";
+}
+
+/* Set content for .glyphicon-resize-full:before pseudo-element */
+.glyphicon-resize-full:before {
+  content: "\e096";
+}
+
+/* Set content for .glyphicon-resize-small:before pseudo-element */
+.glyphicon-resize-small:before {
+  content: "\e097";
+}
+
+/* Set content for .glyphicon-exclamation-sign:before pseudo-element */
+.glyphicon-exclamation-sign:before {
+  content: "\e101";
+}
+
+/* Set content for .glyphicon-gift:before pseudo-element */
+.glyphicon-gift:before {
+  content: "\e102";
+}
+
+/* Set content for .glyphicon-leaf:before pseudo-element */
+.glyphicon-leaf:before {
+  content: "\e103";
+}
+
+/* Set content for .glyphicon-fire:before pseudo-element */
+.glyphicon-fire:before {
+  content: "\e104";
+}
+
+/* Set content for .glyphicon-eye-open:before pseudo-element */
+.glyphicon-eye-open:before {
+  content: "\e105";
+}
+
+/* Set content for .glyphicon-eye-close:before pseudo-element */
+.glyphicon-eye-close:before {
+  content: "\e106";
+}
+
+/* Set content for .glyphicon-warning-sign:before pseudo-element */
+.glyphicon-warning-sign:before {
+  content: "\e107";
+}
+
+/* Set content for .glyphicon-plane:before pseudo-element */
+.glyphicon-plane:before {
+  content: "\e108";
+}
+
+/* Set content for .glyphicon-calendar:before pseudo-element */
+.glyphicon-calendar:before {
+  content: "\e109";
+}
+
+/* Set content for .glyphicon-random:before pseudo-element */
+.glyphicon-random:before {
+  content: "\e110";
+}
+
+/* Set content for .glyphicon-comment:before pseudo-element */
+.glyphicon-comment:before {
+  content: "\e111";
+}
+
+/* Set content for .glyphicon-magnet:before pseudo-element */
+.glyphicon-magnet:before {
+  content: "\e112";
+}
+
+/* Set content for .glyphicon-chevron-up:before pseudo-element */
+.glyphicon-chevron-up:before {
+  content: "\e113";
+}
+
+/* Set content for .glyphicon-chevron-down:before pseudo-element */
+.glyphicon-chevron-down:before {
+  content: "\e114";
+}
+
+/* Set content for .glyphicon-retweet:before pseudo-element */
+.glyphicon-retweet:before {
+  content: "\e115";
+}
+
+/* Set content for .glyphicon-shopping-cart:before pseudo-element */
+.glyphicon-shopping-cart:before {
+  content: "\e116";
+}
+
+/* Set content for .glyphicon-folder-close:before pseudo-element */
+.glyphicon-folder-close:before {
+  content: "\e117";
+}
+
+/* Set content for .glyphicon-folder-open:before pseudo-element */
+.glyphicon-folder-open:before {
+  content: "\e118";
+}
+
+/* Set content for .glyphicon-resize-vertical:before pseudo-element */
+.glyphicon-resize-vertical:before {
+  content: "\e119";
+}
+
+/* Set content for .glyphicon-resize-horizontal:before pseudo-element */
+.glyphicon-resize-horizontal:before {
+  content: "\e120";
+}
+
+/* Set content for .glyphicon-hdd:before pseudo-element */
+.glyphicon-hdd:before {
+  content: "\e121";
+}
+
+/* Set content for .glyphicon-bullhorn:before pseudo-element */
+.glyphicon-bullhorn:before {
+  content: "\e122";
+}
+
+/* Set content for .glyphicon-bell:before pseudo-element */
+.glyphicon-bell:before {
+  content: "\e123";
+}
+
+/* Set content for .glyphicon-certificate:before pseudo-element */
+.glyphicon-certificate:before {
+  content: "\e124";
+}
+
+/* Set content for .glyphicon-thumbs-up:before pseudo-element */
+.glyphicon-thumbs-up:before {
+  content: "\e125";
+}
+
+/* Set content for .glyphicon-thumbs-down:before pseudo-element */
+.glyphicon-thumbs-down:before {
+  content: "\e126";
+}
+
+/* Set content for .glyphicon-hand-right:before pseudo-element */
+.glyphicon-hand-right:before {
+  content: "\e127";
+}
+
+/* Set content for .glyphicon-hand-left:before pseudo-element */
+.glyphicon-hand-left:before {
+  content: "\e128";
+}
+
+/* Set content for .glyphicon-hand-up:before pseudo-element */
+.glyphicon-hand-up:before {
+  content: "\e129";
+}
+
+/* Set content for .glyphicon-hand-down:before pseudo-element */
+.glyphicon-hand-down:before {
+  content: "\e130";
+}
+
+/* Set content for .glyphicon-circle-arrow-right:before pseudo-element */
+.glyphicon-circle-arrow-right:before {
+  content: "\e131";
+}
+
+/* Set content for .glyphicon-circle-arrow-left:before pseudo-element */
+.glyphicon-circle-arrow-left:before {
+  content: "\e132";
+}
+
+/* Set content for .glyphicon-circle-arrow-up:before pseudo-element */
+.glyphicon-circle-arrow-up:before {
+  content: "\e133";
+}
+
+/* Set content for .glyphicon-circle-arrow-down:before pseudo-element */
+.glyphicon-circle-arrow-down:before {
+  content: "\e134";
+}
+
+/* Set content for .glyphicon-globe:before pseudo-element */
+.glyphicon-globe:before {
+  content: "\e135";
+}
+
+/* Set content for .glyphicon-wrench:before pseudo-element */
+.glyphicon-wrench:before {
+  content: "\e136";
+}
+
+/* Set content for .glyphicon-tasks:before pseudo-element */
+.glyphicon-tasks:before {
+  content: "\e137";
+}
+
+/* Set content for .glyphicon-filter:before pseudo-element */
+.glyphicon-filter:before {
+  content: "\e138";
+}
+
+/* Set content for .glyphicon-briefcase:before pseudo-element */
+.glyphicon-briefcase:before {
+  content: "\e139";
+}
+
+/* Set content for .glyphicon-fullscreen:before pseudo-element */
+.glyphicon-fullscreen:before {
+  content: "\e140";
+}
+
+/* Set content for .glyphicon-dashboard:before pseudo-element */
+.glyphicon-dashboard:before {
+  content: "\e141";
+}
+
+/* Set content for .glyphicon-paperclip:before pseudo-element */
+.glyphicon-paperclip:before {
+  content: "\e142";
+}
+
+/* Set content for .glyphicon-heart-empty:before pseudo-element */
+.glyphicon-heart-empty:before {
+  content: "\e143";
+}
+
+/* Set content for .glyphicon-link:before pseudo-element */
+.glyphicon-link:before {
+  content: "\e144";
+}
+
+/* Set content for .glyphicon-phone:before pseudo-element */
+.glyphicon-phone:before {
+  content: "\e145";
+}
+
+/* Set content for .glyphicon-pushpin:before pseudo-element */
+.glyphicon-pushpin:before {
+  content: "\e146";
+}
+
+/* Set content for .glyphicon-usd:before pseudo-element */
+.glyphicon-usd:before {
+  content: "\e148";
+}
+
+/* Set content for .glyphicon-gbp:before pseudo-element */
+.glyphicon-gbp:before {
+  content: "\e149";
+}
+
+/* Set content for .glyphicon-sort:before pseudo-element */
+.glyphicon-sort:before {
+  content: "\e150";
+}
+
+/* Set content for .glyphicon-sort-by-alphabet:before pseudo-element */
+.glyphicon-sort-by-alphabet:before {
+  content: "\e151";
+}
+
+/* This class is for sorting alphabetically */
+.glyphicon-sort-by-alphabet-alt:before {
+  content: "\e152";
+}
+
+/* This class is for sorting by order */
+.glyphicon-sort-by-order:before {
+  content: "\e153";
+}
+
+/* This class is for sorting by order alternately */
+.glyphicon-sort-by-order-alt:before {
+  content: "\e154";
+}
+
+/* This class is for sorting by attributes */
+.glyphicon-sort-by-attributes:before {
+  content: "\e155";
+}
+
+/* This class is for sorting by attributes alternately */
+.glyphicon-sort-by-attributes-alt:before {
+  content: "\e156";
+}
+
+/* This class is for unchecked items */
+.glyphicon-unchecked:before {
+  content: "\e157";
+}
+
+/* This class is for expanding items */
+.glyphicon-expand:before {
+  content: "\e158";
+}
+
+/* This class is for collapsing items downwards */
+.glyphicon-collapse-down:before {
+  content: "\e159";
+}
+
+/* This class is for collapsing items upwards */
+.glyphicon-collapse-up:before {
+  content: "\e160";
+}
+
+/* This class is for logging in */
+.glyphicon-log-in:before {
+  content: "\e161";
+}
+
+/* This class is for flash */
+.glyphicon-flash:before {
+  content: "\e162";
+}
+
+/* This class is for logging out */
+.glyphicon-log-out:before {
+  content: "\e163";
+}
+
+/* This class is for opening a new window */
+.glyphicon-new-window:before {
+  content: "\e164";
+}
+
+/* This class is for recording */
+.glyphicon-record:before {
+  content: "\e165";
+}
+
+/* This class is for saving */
+.glyphicon-save:before {
+  content: "\e166";
+}
+
+/* This class is for opening */
+.glyphicon-open:before {
+  content: "\e167";
+}
+
+/* This class is for saved items */
+.glyphicon-saved:before {
+  content: "\e168";
+}
+
+/* This class is for importing */
+.glyphicon-import:before {
+  content: "\e169";
+}
+
+/* This class is for exporting */
+.glyphicon-export:before {
+  content: "\e170";
+}
+
+/* This class is for sending */
+.glyphicon-send:before {
+  content: "\e171";
+}
+
+/* This class is for floppy disk */
+.glyphicon-floppy-disk:before {
+  content: "\e172";
+}
+
+/* This class is for saved floppy disk */
+.glyphicon-floppy-saved:before {
+  content: "\e173";
+}
+
+/* This class is for removing floppy disk */
+.glyphicon-floppy-remove:before {
+  content: "\e174";
+}
+
+/* This class is for saving floppy disk */
+.glyphicon-floppy-save:before {
+  content: "\e175";
+}
+
+/* This class is for opening floppy disk */
+.glyphicon-floppy-open:before {
+  content: "\e176";
+}
+
+/* This class is for credit card */
+.glyphicon-credit-card:before {
+  content: "\e177";
+}
+
+/* This class is for transfer */
+.glyphicon-transfer:before {
+  content: "\e178";
+}
+
+/* This class is for cutlery */
+.glyphicon-cutlery:before {
+  content: "\e179";
+}
+
+/* This class is for header */
+.glyphicon-header:before {
+  content: "\e180";
+}
+
+/* This class is for compressed items */
+.glyphicon-compressed:before {
+  content: "\e181";
+}
+
+/* This class is for earphone */
+.glyphicon-earphone:before {
+  content: "\e182";
+}
+
+/* This class is for alternate phone */
+.glyphicon-phone-alt:before {
+  content: "\e183";
+}
+
+/* This class is for tower */
+.glyphicon-tower:before {
+  content: "\e184";
+}
+
+/* This class is for stats */
+.glyphicon-stats:before {
+  content: "\e185";
+}
+
+/* This class is for SD video */
+.glyphicon-sd-video:before {
+  content: "\e186";
+}
+
+/* This class is for HD video */
+.glyphicon-hd-video:before {
+  content: "\e187";
+}
+
+/* This class is for subtitles */
+.glyphicon-subtitles:before {
+  content: "\e188";
+}
+
+/* This class is for stereo sound */
+.glyphicon-sound-stereo:before {
+  content: "\e189";
+}
+
+/* This class is for Dolby sound */
+.glyphicon-sound-dolby:before {
+  content: "\e190";
+}
+
+/* This class is for 5.1 sound */
+.glyphicon-sound-5-1:before {
+  content: "\e191";
+}
+
+/* This class is for 6.1 sound */
+.glyphicon-sound-6-1:before {
+  content: "\e192";
+}
+
+/* This class is for 7.1 sound */
+.glyphicon-sound-7-1:before {
+  content: "\e193";
+}
+
+/* This class is for copyright mark */
+.glyphicon-copyright-mark:before {
+  content: "\e194";
+}
+
+/* This class is for registration mark */
+.glyphicon-registration-mark:before {
+  content: "\e195";
+}
+
+/* This class is for cloud download */
+.glyphicon-cloud-download:before {
+  content: "\e197";
+}
+
+/* This class is for cloud upload */
+.glyphicon-cloud-upload:before {
+  content: "\e198";
+}
+
+/* This class is for conifer tree */
+.glyphicon-tree-conifer:before {
+  content: "\e199";
+}
+
+/* This class is for deciduous tree */
+.glyphicon-tree-deciduous:before {
+  content: "\e200";
+}
+
+/* This class is for CD */
+.glyphicon-cd:before {
+  content: "\e201";
+}
+
+/* This class is for saving file */
+.glyphicon-save-file:before {
+  content: "\e202";
+}
+
+/* This class is for opening file */
+.glyphicon-open-file:before {
+  content: "\e203";
+}
+
+/* This class is for level up */
+.glyphicon-level-up:before {
+  content: "\e204";
+}
+
+/* This class is for copy */
+.glyphicon-copy:before {
+  content: "\e205";
+}
+
+/* This class is for paste */
+.glyphicon-paste:before {
+  content: "\e206";
+}
+
+/* This class is for alert */
+.glyphicon-alert:before {
+  content: "\e209";
+}
+
+/* This class is for equalizer */
+.glyphicon-equalizer:before {
+  content: "\e210";
+}
+
+/* This class is for king */
+.glyphicon-king:before {
+  content: "\e211";
+}
+
+/* This class is for queen */
+.glyphicon-queen:before {
+  content: "\e212";
+}
+
+/* This class is for pawn */
+.glyphicon-pawn:before {
+  content: "\e213";
+}
+
+/* This class is for bishop */
+.glyphicon-bishop:before {
+  content: "\e214";
+}
+
+/* This class is for knight */
+.glyphicon-knight:before {
+  content: "\e215";
+}
+
+/* This class is for baby formula */
+.glyphicon-baby-formula:before {
+  content: "\e216";
+}
+
+/* This class is for tent */
+.glyphicon-tent:before {
+  content: "\26fa";
+}
+
+/* This class is for blackboard */
+.glyphicon-blackboard:before {
+  content: "\e218";
+}
+
+/* This class is for bed */
+.glyphicon-bed:before {
+  content: "\e219";
+}
+
+/* This class is for apple */
+.glyphicon-apple:before {
+  content: "\f8ff";
+}
+
+/* This class is for erase */
+.glyphicon-erase:before {
+  content: "\e221";
+}
+
+/* Set content for .glyphicon-hourglass:before pseudo-element */
+.glyphicon-hourglass:before {
+  content: "\231b";
+}
+
+/* Set content for .glyphicon-lamp:before pseudo-element */
+.glyphicon-lamp:before {
+  content: "\e223";
+}
+
+/* Set content for .glyphicon-duplicate:before pseudo-element */
+.glyphicon-duplicate:before {
+  content: "\e224";
+}
+
+/* Set content for .glyphicon-piggy-bank:before pseudo-element */
+.glyphicon-piggy-bank:before {
+  content: "\e225";
+}
+
+/* Set content for .glyphicon-scissors:before pseudo-element */
+.glyphicon-scissors:before {
+  content: "\e226";
+}
+
+/* Set content for .glyphicon-bitcoin:before, .glyphicon-btc:before, and .glyphicon-xbt:before pseudo-elements */
+.glyphicon-bitcoin:before,
+.glyphicon-btc:before,
+.glyphicon-xbt:before {
+  content: "\e227";
+}
+
+/* Set content for .glyphicon-yen:before and .glyphicon-jpy:before pseudo-elements */
+.glyphicon-yen:before,
+.glyphicon-jpy:before {
+  content: "\00a5";
+}
+
+/* Set content for .glyphicon-ruble:before and .glyphicon-rub:before pseudo-elements */
+.glyphicon-ruble:before,
+.glyphicon-rub:before {
+  content: "\20bd";
+}
+
+/* Set content for .glyphicon-scale:before pseudo-element */
+.glyphicon-scale:before {
+  content: "\e230";
+}
+
+/* Set content for .glyphicon-ice-lolly:before and .glyphicon-ice-lolly-tasted:before pseudo-elements */
+.glyphicon-ice-lolly:before,
+.glyphicon-ice-lolly-tasted:before {
+  content: "\e231";
+}
+
+/* Set content for .glyphicon-education:before pseudo-element */
+.glyphicon-education:before {
+  content: "\e233";
+}
+
+/* Set content for .glyphicon-option-horizontal:before pseudo-element */
+.glyphicon-option-horizontal:before {
+  content: "\e234";
+}
+
+/* Set content for .glyphicon-option-vertical:before pseudo-element */
+.glyphicon-option-vertical:before {
+  content: "\e235";
+}
+
+/* Set content for .glyphicon-menu-hamburger:before pseudo-element */
+.glyphicon-menu-hamburger:before {
+  content: "\e236";
+}
+
+/* Set content for .glyphicon-modal-window:before pseudo-element */
+.glyphicon-modal-window:before {
+  content: "\e237";
+}
+
+/* Set content for .glyphicon-oil:before pseudo-element */
+.glyphicon-oil:before {
+  content: "\e238";
+}
+
+/* Set content for .glyphicon-grain:before pseudo-element */
+.glyphicon-grain:before {
+  content: "\e239";
+}
+
+/* Set content for .glyphicon-sunglasses:before pseudo-element */
+.glyphicon-sunglasses:before {
+  content: "\e240";
+}
+
+/* Set content for .glyphicon-text-size:before pseudo-element */
+.glyphicon-text-size:before {
+  content: "\e241";
+}
+
+/* Set content for .glyphicon-text-color:before pseudo-element */
+.glyphicon-text-color:before {
+  content: "\e242";
+}
+
+/* Set content for .glyphicon-text-background:before pseudo-element */
+.glyphicon-text-background:before {
+  content: "\e243";
+}
+
+/* Set content for .glyphicon-object-align-top:before pseudo-element */
+.glyphicon-object-align-top:before {
+  content: "\e244";
+}
+
+/* Set content for .glyphicon-object-align-bottom:before pseudo-element */
+.glyphicon-object-align-bottom:before {
+  content: "\e245";
+}
+
+/* Set content for .glyphicon-object-align-horizontal:before pseudo-element */
+.glyphicon-object-align-horizontal:before {
+  content: "\e246";
+}
+
+/* Set content for .glyphicon-object-align-left:before pseudo-element */
+.glyphicon-object-align-left:before {
+  content: "\e247";
+}
+
+/* Set content for .glyphicon-object-align-vertical:before pseudo-element */
+.glyphicon-object-align-vertical:before {
+  content: "\e248";
+}
+
+/* Set content for .glyphicon-object-align-right:before pseudo-element */
+.glyphicon-object-align-right:before {
+  content: "\e249";
+}
+
+/* Set content for .glyphicon-triangle-right:before pseudo-element */
+.glyphicon-triangle-right:before {
+  content: "\e250";
+}
+
+/* Set content for .glyphicon-triangle-left:before pseudo-element */
+.glyphicon-triangle-left:before {
+  content: "\e251";
+}
+
+/* Set content for .glyphicon-triangle-bottom:before pseudo-element */
+.glyphicon-triangle-bottom:before {
+  content: "\e252";
+}
+
+/* Set content for .glyphicon-triangle-top:before pseudo-element */
+.glyphicon-triangle-top:before {
+  content: "\e253";
+}
+
+/* Set content for .glyphicon-console:before pseudo-element */
+.glyphicon-console:before {
+  content: "\e254";
+}
+
+/* Set content for .glyphicon-superscript:before pseudo-element */
+.glyphicon-superscript:before {
+  content: "\e255";
+}
+
+/* Set content for .glyphicon-subscript:before pseudo-element */
+.glyphicon-subscript:before {
+  content: "\e256";
+}
+
+/* Set content for .glyphicon-menu-left:before pseudo-element */
+.glyphicon-menu-left:before {
+  content: "\e257";
+}
+
+/* Set content for .glyphicon-menu-right:before pseudo-element */
+.glyphicon-menu-right:before {
+  content: "\e258";
+}
+
+/* Set content for .glyphicon-menu-down:before pseudo-element */
+.glyphicon-menu-down:before {
+  content: "\e259";
+}
+
+/* Set content for .glyphicon-menu-up:before pseudo-element */
+.glyphicon-menu-up:before {
+  content: "\e260";
+}
+
+/* Apply a natural box layout model to all elements, but allowing components to change */
+* {
+  -webkit-box-sizing: border-box; /* Chrome, Safari, Opera */
+     -moz-box-sizing: border-box; /* Firefox */
+          box-sizing: border-box; /* CSS3 */
+}
+
+/* Apply a natural box layout model to all pseudo-elements */
+*:before,
+*:after {
+  -webkit-box-sizing: border-box; /* Chrome, Safari, Opera */
+     -moz-box-sizing: border-box; /* Firefox */
+          box-sizing: border-box; /* CSS3 */
+}
+
+/* Set base font size on html element */
+html {
+  font-size: 10px;
+  /* Remove the highlight color when tapping links in mobile Safari */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Set default styles on body element */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Inherit font styles for form elements */
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Set default styles for anchor elements */
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+/* Set hover and focus styles for anchor elements */
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: underline;
+}
+
+/* Set focus styles for anchor elements */
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* Remove margins on figure elements */
+figure {
+  margin: 0;
+}
+
+/* Set default styles for images */
+img {
+  vertical-align: middle;
+}
+
+/* Set responsive styles for images */
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Set styles for rounded images */
+.img-rounded {
+  border-radius: 6px;
+}
+
+/* Set styles for thumbnail images */
+.img-thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+}
+
+/* Set styles for circular images */
+.img-circle {
+  border-radius: 50%;
+}
+
+/* Set styles for horizontal rule */
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+/* Set styles for screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Set styles for focusable screen reader only text */
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+
+/* Set cursor style for roles that are buttons */
+[role="button"] {
+  cursor: pointer;
+}
+
+/* Set default styles for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+/* Set styles for small text within headings */
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small,
+.h1 small,
+.h2 small,
+.h3 small,
+.h4 small,
+.h5 small,
+.h6 small,
+h1 .small,
+h2 .small,
+h3 .small,
+h4 .small,
+h5 .small,
+h6 .small,
+.h1 .small,
+.h2 .small,
+.h3 .small,
+.h4 .small,
+.h5 .small,
+.h6 .small {
+  font-weight: normal;
+  line-height: 1;
+  color: #777;
+}
+
+/* Set margin styles for headings */
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Set font size for small text within headings */
+h1 small,
+.h1 small,
+h2 small,
+.h2 small,
+h3 small,
+.h3 small,
+h1 .small,
+.h1 .small,
+h2 .small,
+.h2 .small,
+h3 .small,
+.h3 .small {
+  font-size: 65%;
+}
+
+/* Set margin styles for smaller headings */
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Set font size for small text within smaller headings */
+h4 small,
+.h4 small,
+h5 small,
+.h5 small,
+h6 small,
+.h6 small,
+h4 .small,
+.h4 .small,
+h5 .small,
+.h5 .small,
+h6 .small,
+.h6 .small {
+  font-size: 75%;
+}
+
+/* Set font size for h1 and .h1 */
+h1,
+.h1 {
+  font-size: 36px;
+}
+
+/* Set font size for h2 and .h2 */
+h2,
+.h2 {
+  font-size: 30px;
+}
+
+/* Set font size for h3 and .h3 */
+h3,
+.h3 {
+  font-size: 24px;
+}
+
+/* Set font size for h4 and .h4 */
+h4,
+.h4 {
+  font-size: 18px;
+}
+
+/* Set font size for h5 and .h5 */
+h5,
+.h5 {
+  font-size: 14px;
+}
+
+/* Set font size for h6 and .h6 */
+h6,
+.h6 {
+  font-size: 12px;
+}
+
+/* Set margin for p */
+p {
+  margin: 0 0 10px;
+}
+
+/* Set styles for .lead */
+.lead {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* Set styles for .lead for screens wider than 768px */
+@media (min-width: 768px) {
+  .lead {
+    font-size: 21px;
+  }
+}
+
+/* Set font size for small and .small */
+small,
+.small {
+  font-size: 85%;
+}
+
+/* Set styles for mark and .mark */
+mark,
+.mark {
+  padding: .2em;
+  background-color: #fcf8e3;
+}
+
+/* Set text alignment classes */
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+
+/* Set white-space for .text-nowrap */
+.text-nowrap {
+  white-space: nowrap;
+}
+
+/* Set text transform classes */
+.text-lowercase {
+  text-transform: lowercase;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+/* Set color for .text-muted */
+.text-muted {
+  color: #777;
+}
+
+/* Set color for .text-primary */
+.text-primary {
+  color: #337ab7;
+}
+
+/* Set hover and focus color for .text-primary */
+a.text-primary:hover,
+a.text-primary:focus {
+  color: #286090;
+}
+
+/* Set color for .text-success */
+.text-success {
+  color: #3c763d;
+}
+
+/* Set hover and focus color for .text-success */
+a.text-success:hover,
+a.text-success:focus {
+  color: #2b542c;
+}
+
+/* Set color for .text-info */
+.text-info {
+  color: #31708f;
+}
+
+/* Set hover and focus color for .text-info */
+a.text-info:hover,
+a.text-info:focus {
+  color: #245269;
+}
+
+/* Set color for .text-warning */
+.text-warning {
+  color: #8a6d3b;
+}
+
+/* Set hover and focus color for .text-warning */
+a.text-warning:hover,
+a.text-warning:focus {
+  color: #66512c;
+}
+
+/* Set color for .text-danger */
+.text-danger {
+  color: #a94442;
+}
+
+/* Set hover and focus color for .text-danger */
+a.text-danger:hover,
+a.text-danger:focus {
+  color: #843534;
+}
+
+/* Set color and background-color for .bg-primary */
+.bg-primary {
+  color: #fff;
+  background-color: #337ab7;
+}
+
+/* Set hover and focus background-color for .bg-primary */
+a.bg-primary:hover,
+a.bg-primary:focus {
+  background-color: #286090;
+}
+
+/* Set background-color for .bg-success */
+.bg-success {
+  background-color: #dff0d8;
+}
+
+/* Set hover and focus background-color for .bg-success */
+a.bg-success:hover,
+a.bg-success:focus {
+  background-color: #c1e2b3;
+}
+
+/* Set background-color for .bg-info */
+.bg-info {
+  background-color: #d9edf7;
+}
+
+/* Set hover and focus background-color for .bg-info */
+a.bg-info:hover,
+a.bg-info:focus {
+  background-color: #afd9ee;
+}
+
+/* Set background-color for .bg-warning */
+.bg-warning {
+  background-color: #fcf8e3;
+}
+
+/* Set hover and focus background-color for .bg-warning */
+a.bg-warning:hover,
+a.bg-warning:focus {
+  background-color: #f7ecb5;
+}
+
+/* Set background-color for .bg-danger */
+.bg-danger {
+  background-color: #f2dede;
+}
+
+/* Set hover and focus background-color for .bg-danger */
+a.bg-danger:hover,
+a.bg-danger:focus {
+  background-color: #e4b9b9;
+}
+
+/* Set styles for .page-header */
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Set margin for ul and ol */
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Set margin for nested lists */
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-bottom: 0;
+}
+
+/* Remove padding and list style for .list-unstyled */
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+/* Remove padding and set negative margin for .list-inline */
+.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+
+/* Set display and padding for .list-inline > li */
+.list-inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+/* Set margin for dl */
+dl {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Set line-height for dt and dd */
+dt,
+dd {
+  line-height: 1.42857143;
+}
+
+/* Set font-weight for dt */
+dt {
+  font-weight: bold;
+}
+
+/* Set margin for dd */
+dd {
+  margin-left: 0;
+}
+
+/* Set styles for .dl-horizontal dt and dd for screens wider than 768px */
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left: 180px;
+  }
+}
+
+/* Set cursor and border for abbr[title] and abbr[data-original-title] */
+abbr[title],
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted #777;
+}
+
+/* Set font size and text transform for .initialism */
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+/* Set styles for blockquote */
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid #eee;
+}
+
+/* Remove bottom margin for the last paragraph, unordered list, or ordered list within a blockquote */
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+
+/* Set styles for footer, small, and .small within a blockquote */
+blockquote footer,
+blockquote small,
+blockquote .small {
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857143;
+  color: #777;
+}
+
+/* Add content before footer, small, and .small within a blockquote */
+blockquote footer:before,
+blockquote small:before,
+blockquote .small:before {
+  content: '\2014 \00A0';
+}
+
+/* Set styles for .blockquote-reverse and blockquote.pull-right */
+.blockquote-reverse,
+blockquote.pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  text-align: right;
+  border-right: 5px solid #eee;
+  border-left: 0;
+}
+
+/* Remove content before footer, small, and .small within .blockquote-reverse and blockquote.pull-right */
+.blockquote-reverse footer:before,
+blockquote.pull-right footer:before,
+.blockquote-reverse small:before,
+blockquote.pull-right small:before,
+.blockquote-reverse .small:before,
+blockquote.pull-right .small:before {
+  content: '';
+}
+
+/* Add content after footer, small, and .small within .blockquote-reverse and blockquote.pull-right */
+.blockquote-reverse footer:after,
+blockquote.pull-right footer:after,
+.blockquote-reverse small:after,
+blockquote.pull-right small:after,
+.blockquote-reverse .small:after,
+blockquote.pull-right .small:after {
+  content: '\00A0 \2014';
+}
+
+/* Set styles for address */
+address {
+  margin-bottom: 20px;
+  font-style: normal;
+  line-height: 1.42857143;
+}
+
+/* Set font family for code, kbd, pre, and samp */
+code,
+kbd,
+pre,
+samp {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Set styles for code */
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+/* Set styles for kbd */
+kbd {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #fff;
+  background-color: #333;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
+}
+
+/* Set styles for kbd within kbd */
+kbd kbd {
+  padding: 0;
+  font-size: 100%;
+  font-weight: bold;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/* Set styles for pre */
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Set styles for code within pre */
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* Set styles for .pre-scrollable */
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+/* Set styles for .container */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Set width for .container for screens wider than 768px */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Set width for .container for screens wider than 992px */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Set width for .container for screens wider than 1200px */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* Set styles for .container-fluid */
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Set styles for .row */
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* Set styles for grid columns */
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Set float for grid columns for extra small devices */
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left;
+}
+
+/* Set width for .col-xs-12 */
+.col-xs-12 {
+  width: 100%;
+}
+
+/* Set width for .col-xs-11 */
+.col-xs-11 {
+  width: 91.66666667%;
+}
+
+/* Set width for .col-xs-10 */
+.col-xs-10 {
+  width: 83.33333333%;
+}
+
+/* Set width for .col-xs-9 */
+.col-xs-9 {
+  width: 75%;
+}
+
+/* Set width for .col-xs-8 */
+.col-xs-8 {
+  width: 66.66666667%;
+}
+
+/* Set width for .col-xs-7 */
+.col-xs-7 {
+  width: 58.33333333%;
+}
+
+/* Set width for .col-xs-6 */
+.col-xs-6 {
+  width: 50%;
+}
+
+/* Set width for .col-xs-5 */
+.col-xs-5 {
+  width: 41.66666667%;
+}
+
+/* Set width for .col-xs-4 */
+.col-xs-4 {
+  width: 33.33333333%;
+}
+
+/* Set width for .col-xs-3 */
+.col-xs-3 {
+  width: 25%;
+}
+
+/* Set width for .col-xs-2 */
+.col-xs-2 {
+  width: 16.66666667%;
+}
+
+/* Set width for .col-xs-1 */
+.col-xs-1 {
+  width: 8.33333333%;
+}
+
+/* Set right for .col-xs-pull-12 */
+.col-xs-pull-12 {
+  right: 100%;
+}
+
+/* Set right for .col-xs-pull-11 */
+.col-xs-pull-11 {
+  right: 91.66666667%;
+}
+
+/* Set right for .col-xs-pull-10 */
+.col-xs-pull-10 {
+  right: 83.33333333%;
+}
+
+/* Set right for .col-xs-pull-9 */
+.col-xs-pull-9 {
+  right: 75%;
+}
+
+/* Set right for .col-xs-pull-8 */
+.col-xs-pull-8 {
+  right: 66.66666667%;
+}
+
+/* Set right for .col-xs-pull-7 */
+.col-xs-pull-7 {
+  right: 58.33333333%;
+}
+
+/* Set right for .col-xs-pull-6 */
+.col-xs-pull-6 {
+  right: 50%;
+}
+
+/* Set right for .col-xs-pull-5 */
+.col-xs-pull-5 {
+  right: 41.66666667%;
+}
+
+/* Set right for .col-xs-pull-4 */
+.col-xs-pull-4 {
+  right: 33.33333333%;
+}
+
+/* Set right for .col-xs-pull-3 */
+.col-xs-pull-3 {
+  right: 25%;
+}
+
+/* Set right for .col-xs-pull-2 */
+.col-xs-pull-2 {
+  right: 16.66666667%;
+}
+
+/* Set right for .col-xs-pull-1 */
+.col-xs-pull-1 {
+  right: 8.33333333%;
+}
+
+/* Set right for .col-xs-pull-0 */
+.col-xs-pull-0 {
+  right: auto;
+}
+
+/* Set left for .col-xs-push-12 */
+.col-xs-push-12 {
+  left: 100%;
+}
+
+/* Set left for .col-xs-push-11 */
+.col-xs-push-11 {
+  left: 91.66666667%;
+}
+
+/* Set left for .col-xs-push-10 */
+.col-xs-push-10 {
+  left: 83.33333333%;
+}
+
+/* Set left for .col-xs-push-9 */
+.col-xs-push-9 {
+  left: 75%;
+}
+
+/* Set left for .col-xs-push-8 */
+.col-xs-push-8 {
+  left: 66.66666667%;
+}
+
+/* Set left for .col-xs-push-7 */
+.col-xs-push-7 {
+  left: 58.33333333%;
+}
+
+/* Set left for .col-xs-push-6 */
+.col-xs-push-6 {
+  left: 50%;
+}
+
+/* Set left for .col-xs-push-5 */
+.col-xs-push-5 {
+  left: 41.66666667%;
+}
+
+/* Set left for .col-xs-push-4 */
+.col-xs-push-4 {
+  left: 33.33333333%;
+}
+
+/* Set left for .col-xs-push-3 */
+.col-xs-push-3 {
+  left: 25%;
+}
+
+/* Set left for .col-xs-push-2 */
+.col-xs-push-2 {
+  left: 16.66666667%;
+}
+
+/* Set left for .col-xs-push-1 */
+.col-xs-push-1 {
+  left: 8.33333333%;
+}
+
+/* Set left for .col-xs-push-0 */
+.col-xs-push-0 {
+  left: auto;
+}
+
+.col-xs-offset-12 {
+  margin-left: 100%; /* Offset for col-xs-12, no visible change as it occupies the full width */
+}
+
+.col-xs-offset-11 {
+  margin-left: 91.66666667%; /* Offset for col-xs-11, 8.33333333% less than full width */
+}
+
+.col-xs-offset-10 {
+  margin-left: 83.33333333%; /* Offset for col-xs-10, 16.66666667% less than full width */
+}
+
+.col-xs-offset-9 {
+  margin-left: 75%; /* Offset for col-xs-9, 25% less than full width */
+}
+
+.col-xs-offset-8 {
+  margin-left: 66.66666667%; /* Offset for col-xs-8, 33.33333333% less than full width */
+}
+
+.col-xs-offset-7 {
+  margin-left: 58.33333333%; /* Offset for col-xs-7, 41.66666667% less than full width */
+}
+
+.col-xs-offset-6 {
+  margin-left: 50%; /* Offset for col-xs-6, 50% less than full width */
+}
+
+.col-xs-offset-5 {
+  margin-left: 41.66666667%; /* Offset for col-xs-5, 58.33333333% less than full width */
+}
+
+.col-xs-offset-4 {
+  margin-left: 33.33333333%; /* Offset for col-xs-4, 66.66666667% less than full width */
+}
+
+.col-xs-offset-3 {
+  margin-left: 25%; /* Offset for col-xs-3, 75% less than full width */
+}
+
+.col-xs-offset-2 {
+  margin-left: 16.66666667%; /* Offset for col-xs-2, 83.33333333% less than full width */
+}
+
+.col-xs-offset-1 {
+  margin-left: 8.33333333%; /* Offset for col-xs-1, 91.66666667% less than full width */
+}
+
+.col-xs-offset-0 {
+  margin-left: 0; /* No offset for col-xs-0, aligns with the left edge */
+}
+
+/* 
+  The following media query adjusts the column behavior for small screens (col-sm) and defines offsets, widths, pulls, pushes accordingly.
+*/
+
+@media (min-width: 768px) {
+
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left; /* Set float left for all columns in col-sm */
+  }
+
+  .col-sm-12 {
+    width: 100%; /* Full width for col-sm-12 */
+  }
+
+  .col-sm-11 {
+    width: 91.66666667%; /* 8.33333333% less than full width for col-sm-11 */
+  }
+
+  /* 
+    The following rules define pulling columns to the right in col-sm.
+  */
+
+  .col-sm-pull-12 {
+    right: 100%; /* Pull col-sm-12 to the right by 100% */
+  }
+
+  /* 
+    The following rules define pushing columns to the left in col-sm.
+  */
+
+  .col-sm-push-12 {
+    left: 100%; /* Push col-sm-12 to the left by 100% */
+  }
+  /* 
+    The following rules define offsets for col-sm.
+  */
+
+  .col-sm-offset-12 {
+    margin-left: 100%; /* Offset for col-sm-12, no visible change as it occupies the full width */
+  }
+}
+
+/* 
+  The following media query adjusts the column behavior for medium screens (col-md) and defines offsets, widths accordingly.
+*/
+
+@media (min-width: 992px) {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+  }
+  
+  .col-md-12 {
+    width: 100%; /* Full width for col-md-12 */
+  }
+
+  .col-md-11 {
+    width: 91.66666667%; /* 8.33333333% less than full width for col-md-11 */
+  }
+
+  .col-md-10 {
+    width: 83.33333333%; /* 16.66666667% less than full width for col-md-10 */
+  }
+
+  .col-md-9 {
+    width: 75%; /* 25% less than full width for col-md-9 */
+  }
+
+  .col-md-8 {
+    width: 66.66666667%; /* 33.33333333% less than full width for col-md-8 */
+  }
+
+  .col-md-7 {
+    width: 58.33333333%; /* 41.66666667% less than full width for col-md-7 */
+  }
+
+  .col-md-6 {
+    width: 50%; /* 50% less than full width for col-md-6 */
+  }
+
+  .col-md-5 {
+    width: 41.66666667%; /* 58.33333333% less than full width for col-md-5 */
+  }
+
+  .col-md-4 {
+    width: 33.33333333%; /* 66.66666667% less than full width for col-md-4 */
+  }
+
+  .col-md-3 {
+    width: 25%; /* 75% less than full width for col-md-3 */
+  }
+
+  .col-md-2 {
+    width: 16.66666667%; /* 83.33333333% less than full width for col-md-2 */
+  }
+
+  .col-md-1 {
+    width: 8.33333333%; /* 91.66666667% less than full width for col-md-1 */
+  }
+
+  /* 
+    The following rules define pulling columns to the right in col-md.
+  */
+
+  .col-md-pull-12 {
+    right: 100%; /* Pull col-md-12 to the right by 100% */
+  }
+
+  .col-md-pull-11 {
+    right: 91.66666667%; /* Pull col-md-11 to the right by 91.66666667% */
+  }
+
+  /* 
+    (Similar rules follow for other columns in col-md with varying percentages)
+  */
+
+  /* 
+    The following rules define pushing columns to the left in col-md.
+  */
+
+  .col-md-push-12 {
+    left: 100%; /* Push col-md-12 to the left by 100% */
+  }
+
+  .col-md-push-11 {
+    left: 91.66666667%; /* Push col-md-11 to the left by 91.66666667% */
+  }
+
+  /* 
+    (Similar rules follow for other columns in col-md with varying percentages)
+  */
+
+  /* 
+    The following rules define offsets for col-md.
+  */
+
+  .col-md-offset-12 {
+    margin-left: 100%; /* Offset for col-md-12, no visible change as it occupies the full width */
+  }
+
+  .col-md-offset-11 {
+    margin-left: 91.66666667%; /* Offset for col-md-11, 8.33333333% less than full width */
+  }
+
+  /* 
+    (Similar rules follow for other columns in col-md with varying percentages)
+  */
+
+  .col-md-offset-10 {
+    margin-left: 83.33333333%; /* Offset for col-md-10, 16.66666667% less than full width */
+  }
+
+  .col-md-offset-9 {
+    margin-left: 75%; /* Offset for col-md-9, 25% less than full width */
+  }
+
+  .col-md-offset-8 {
+    margin-left: 66.66666667%; /* Offset for col-md-8, 33.33333333% less than full width */
+  }
+
+  .col-md-offset-7 {
+    margin-left: 58.33333333%; /* Offset for col-md-7, 41.66666667% less than full width */
+  }
+
+  .col-md-offset-6 {
+    margin-left: 50%; /* Offset for col-md-6, 50% less than full width */
+  }
+
+  .col-md-offset-5 {
+    margin-left: 41.66666667%; /* Offset for col-md-5, 58.33333333% less than full width */
+  }
+
+  .col-md-offset-4 {
+    margin-left: 33.33333333%; /* Offset for col-md-4, 66.66666667% less than full width */
+  }
+
+  .col-md-offset-3 {
+    margin-left: 25%; /* Offset for col-md-3, 75% less than full width */
+  }
+
+  .col-md-offset-2 {
+    margin-left: 16.66666667%; /* Offset for col-md-2, 83.33333333% less than full width */
+  }
+
+  .col-md-offset-1 {
+    margin-left: 8.33333333%; /* Offset for col-md-1, 91.66666667% less than full width */
+  }
+
+  .col-md-offset-0 {
+    margin-left: 0; /* No offset for col-md-0, aligns with the left edge */
+  }
+}
+
+/* Media query for large screens (min-width: 1200px) */
+@media (min-width: 1200px) {
+
+  /* Float property for columns from .col-lg-1 to .col-lg-12 */
+  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    float: left;
+  }
+
+  /* Set width for .col-lg-12 to 100% */
+  .col-lg-12 {
+    width: 100%;
+  }
+
+  /* Set widths for .col-lg-11 to .col-lg-1 based on percentage */
+  .col-lg-11 {
+    width: 91.66666667%;
+  }
+  .col-lg-10 {
+    width: 83.33333333%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-8 {
+    width: 66.66666667%;
+  }
+  .col-lg-7 {
+    width: 58.33333333%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-5 {
+    width: 41.66666667%;
+  }
+  .col-lg-4 {
+    width: 33.33333333%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-2 {
+    width: 16.66666667%;
+  }
+  .col-lg-1 {
+    width: 8.33333333%;
+  }
+
+  /* Pull classes for adjusting column position to the right */
+  .col-lg-pull-12 {
+    right: 100%;
+  }
+  .col-lg-pull-11 {
+    right: 91.66666667%;
+  }
+  .col-lg-pull-10 {
+    right: 83.33333333%;
+  }
+  .col-lg-pull-9 {
+    right: 75%;
+  }
+  .col-lg-pull-8 {
+    right: 66.66666667%;
+  }
+  .col-lg-pull-7 {
+    right: 58.33333333%;
+  }
+  .col-lg-pull-6 {
+    right: 50%;
+  }
+  .col-lg-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-lg-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-lg-pull-3 {
+    right: 25%;
+  }
+  .col-lg-pull-2 {
+    right: 16.66666667%;
+  }
+  .col-lg-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-lg-pull-0 {
+    right: auto;
+  }
+
+  /* Push classes for adjusting column position to the left */
+  .col-lg-push-12 {
+    left: 100%;
+  }
+  .col-lg-push-11 {
+    left: 91.66666667%;
+  }
+  .col-lg-push-10 {
+    left: 83.33333333%;
+  }
+  .col-lg-push-9 {
+    left: 75%;
+  }
+  .col-lg-push-8 {
+    left: 66.66666667%;
+  }
+  .col-lg-push-7 {
+    left: 58.33333333%;
+  }
+  .col-lg-push-6 {
+    left: 50%;
+  }
+  .col-lg-push-5 {
+    left: 41.66666667%;
+  }
+  .col-lg-push-4 {
+    left: 33.33333333%;
+  }
+  .col-lg-push-3 {
+    left: 25%;
+  }
+  .col-lg-push-2 {
+    left: 16.66666667%;
+  }
+  .col-lg-push-1 {
+    left: 8.33333333%;
+  }
+  .col-lg-push-0 {
+    left: auto;
+  }
+
+  /* Offset classes for adding margin to the left */
+  .col-lg-offset-12 {
+    margin-left: 100%;
+  }
+  .col-lg-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .col-lg-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .col-lg-offset-9 {
+    margin-left: 75%;
+  }
+  .col-lg-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .col-lg-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .col-lg-offset-6 {
+    margin-left: 50%;
+  }
+  .col-lg-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .col-lg-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .col-lg-offset-3 {
+    margin-left: 25%;
+  }
+  .col-lg-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .col-lg-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-lg-offset-0 {
+    margin-left: 0;
+  }
+}
+
+/* Set background color of the table to transparent */
+table {
+  background-color: transparent;
+}
+
+/* Style for table caption */
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777;
+  text-align: left;
+}
+
+/* Set text alignment for table header cells */
+th {
+  text-align: left;
+}
+
+/* Basic styling for tables */
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Styling for table cells and borders */
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+
+/* Additional styling for table header cells */
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Remove top border for specific cases */
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+
+/* Style for secondary tbody in a nested table */
+.table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+
+/* Background color for nested tables */
+.table .table {
+  background-color: #fff;
+}
+
+/* Adjust padding for condensed tables */
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 5px;
+}
+
+/* Styling for bordered tables */
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+/* Border styling for table cells */
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+
+/* Additional border styling for table header cells */
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+}
+
+/* Background color for odd rows in striped tables */
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Background color on hover for table rows in hover tables */
+.table-hover > tbody > tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Position and display settings for table columns */
+table col[class*="col-"] {
+  position: static;
+  display: table-column;
+  float: none;
+}
+
+/* Position and display settings for table cells */
+table td[class*="col-"],
+table th[class*="col-"] {
+  position: static;
+  display: table-cell;
+  float: none;
+}
+
+/* Background color for active table cells */
+.table > thead > tr > td.active,
+.table > tbody > tr > td.active,
+.table > tfoot > tr > td.active,
+.table > thead > tr > th.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > thead > tr.active > th,
+.table > tbody > tr.active > th,
+.table > tfoot > tr.active > th {
+  background-color: #f5f5f5;
+}
+
+/* Background color on hover for active table cells */
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+  background-color: #e8e8e8;
+}
+
+/* Background color for success-themed table cells */
+.table > thead > tr > td.success,
+.table > tbody > tr > td.success,
+.table > tfoot > tr > td.success,
+.table > thead > tr > th.success,
+.table > tbody > tr > th.success,
+.table > tfoot > tr > th.success,
+.table > thead > tr.success > td,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td,
+.table > thead > tr.success > th,
+.table > tbody > tr.success > th,
+.table > tfoot > tr.success > th {
+  background-color: #dff0d8;
+}
+
+/* Background color on hover for success-themed table cells */
+.table-hover > tbody > tr > td.success:hover,
+.table-hover > tbody > tr > th.success:hover,
+.table-hover > tbody > tr.success:hover > td,
+.table-hover > tbody > tr:hover > .success,
+.table-hover > tbody > tr.success:hover > th {
+  background-color: #d0e9c6;
+}
+
+/* Background color for info-themed table cells */
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th {
+  background-color: #d9edf7;
+}
+
+/* Background color on hover for info-themed table cells */
+.table-hover > tbody > tr > td.info:hover,
+.table-hover > tbody > tr > th.info:hover,
+.table-hover > tbody > tr.info:hover > td,
+.table-hover > tbody > tr:hover > .info,
+.table-hover > tbody > tr.info:hover > th {
+  background-color: #c4e3f3;
+}
+
+/* Background color for warning-themed table cells */
+.table > thead > tr > td.warning,
+.table > tbody > tr > td.warning,
+.table > tfoot > tr > td.warning,
+.table > thead > tr > th.warning,
+.table > tbody > tr > th.warning,
+.table > tfoot > tr > th.warning,
+.table > thead > tr.warning > td,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td,
+.table > thead > tr.warning > th,
+.table > tbody > tr.warning > th,
+.table > tfoot > tr.warning > th {
+  background-color: #fcf8e3;
+}
+
+/* Background color on hover for warning-themed table cells */
+.table-hover > tbody > tr > td.warning:hover,
+.table-hover > tbody > tr > th.warning:hover,
+.table-hover > tbody > tr.warning:hover > td,
+.table-hover > tbody > tr:hover > .warning,
+.table-hover > tbody > tr.warning:hover > th {
+  background-color: #faf2cc;
+}
+
+/* Background color for danger-themed table cells */
+.table > thead > tr > td.danger,
+.table > tbody > tr > td.danger,
+.table > tfoot > tr > td.danger,
+.table > thead > tr > th.danger,
+.table > tbody > tr > th.danger,
+.table > tfoot > tr > th.danger,
+.table > thead > tr.danger > td,
+.table > tbody > tr.danger > td,
+.table > tfoot > tr.danger > td,
+.table > thead > tr.danger > th,
+.table > tbody > tr.danger > th,
+.table > tfoot > tr.danger > th {
+  background-color: #f2dede;
+}
+
+/* Background color on hover for danger-themed table cells */
+.table-hover > tbody > tr > td.danger:hover,
+.table-hover > tbody > tr > th.danger:hover,
+.table-hover > tbody > tr.danger:hover > td,
+.table-hover > tbody > tr:hover > .danger,
+.table-hover > tbody > tr.danger:hover > th {
+  background-color: #ebcccc;
+}
+
+/* Responsive styling for tables on small screens */
+.table-responsive {
+  min-height: .01%;
+  overflow-x: auto;
+}
+
+/* Responsive styling for screens with a maximum width of 767px */
+@media screen and (max-width: 767px) {
+
+  /* Set width, margin, overflow, and border for responsive tables */
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+  }
+
+  /* Adjust margin for the table inside a responsive container */
+  .table-responsive > .table {
+    margin-bottom: 0;
+  }
+
+  /* Prevent line breaks for table cells in the header, body, and footer */
+  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > tbody > tr > th,
+  .table-responsive > .table > tfoot > tr > th,
+  .table-responsive > .table > thead > tr > td,
+  .table-responsive > .table > tbody > tr > td,
+  .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+
+  /* Remove borders for bordered responsive tables */
+  .table-responsive > .table-bordered {
+    border: 0;
+  }
+
+  /* Remove left border for the first column in bordered responsive tables */
+  .table-responsive > .table-bordered > thead > tr > th:first-child,
+  .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  .table-responsive > .table-bordered > thead > tr > td:first-child,
+  .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+
+  /* Remove right border for the last column in bordered responsive tables */
+  .table-responsive > .table-bordered > thead > tr > th:last-child,
+  .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  .table-responsive > .table-bordered > thead > tr > td:last-child,
+  .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+
+  /* Remove bottom border for the last row in bordered responsive tables */
+  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+
+/* Reset styles for fieldset */
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* Styling for legend within fieldset */
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: inherit;
+  color: #333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Styling for labels */
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Styling for search input type */
+input[type="search"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Styling for radio and checkbox input types */
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+
+/* Styling for file input type */
+input[type="file"] {
+  display: block;
+}
+
+/* Styling for range input type */
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+/* Styling for select with multiple or size attribute */
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+/* Focus styles for various input types */
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* Styling for output element */
+output {
+  display: block;
+  padding-top: 7px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+}
+
+/* Styling for form controls */
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+/* Focus styles for form controls */
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+
+/* Styling for placeholder text in form controls */
+.form-control::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #999;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #999;
+}
+
+/* Styling for disabled and readonly form controls */
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  background-color: #eee;
+  opacity: 1;
+}
+
+/* Cursor style for disabled form controls */
+.form-control[disabled],
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+}
+
+/* Styling for textarea form controls */
+textarea.form-control {
+  height: auto;
+}
+
+/* Additional styling for search input type on webkit-based browsers */
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+/* Responsive styling for date, time, datetime-local, and month input types */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="date"].form-control,
+  input[type="time"].form-control,
+  input[type="datetime-local"].form-control,
+  input[type="month"].form-control {
+    line-height: 34px;
+  }
+
+  input[type="date"].input-sm,
+  input[type="time"].input-sm,
+  input[type="datetime-local"].input-sm,
+  input[type="month"].input-sm,
+  .input-group-sm input[type="date"],
+  .input-group-sm input[type="time"],
+  .input-group-sm input[type="datetime-local"],
+  .input-group-sm input[type="month"] {
+    line-height: 30px;
+  }
+
+  input[type="date"].input-lg,
+  input[type="time"].input-lg,
+  input[type="datetime-local"].input-lg,
+  input[type="month"].input-lg,
+  .input-group-lg input[type="date"],
+  .input-group-lg input[type="time"],
+  .input-group-lg input[type="datetime-local"],
+  .input-group-lg input[type="month"] {
+    line-height: 46px;
+  }
+}
+
+/* Styling for form groups */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Styling for radio and checkbox containers */
+.radio,
+.checkbox {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Styling for labels within radio and checkbox containers */
+.radio label,
+.checkbox label {
+  min-height: 20px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* Styling for radio and checkbox input elements */
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-top: 4px \9;
+  margin-left: -20px;
+}
+
+/* Additional styling for subsequent radio and checkbox containers */
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: -5px;
+}
+
+/* Styling for inline radio and checkbox containers */
+.radio-inline,
+.checkbox-inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: normal;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Styling for subsequent inline radio and checkbox containers */
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+/* Styling for disabled radio, checkbox, and their labels */
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"].disabled,
+input[type="checkbox"].disabled,
+fieldset[disabled] input[type="radio"],
+fieldset[disabled] input[type="checkbox"] {
+  cursor: not-allowed;
+}
+
+/* Styling for disabled inline radio and checkbox containers */
+.radio-inline.disabled,
+.checkbox-inline.disabled,
+fieldset[disabled] .radio-inline,
+fieldset[disabled] .checkbox-inline {
+  cursor: not-allowed;
+}
+
+/* Styling for labels within disabled radio and checkbox containers */
+.radio.disabled label,
+.checkbox.disabled label,
+fieldset[disabled] .radio label,
+fieldset[disabled] .checkbox label {
+  cursor: not-allowed;
+}
+
+/* Default styles for form control static */
+.form-control-static {
+  /* Set minimum height, padding, and remove bottom margin */
+  min-height: 34px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-bottom: 0;
+}
+
+/* Additional styles for input-lg and input-sm within form-control-static */
+.form-control-static.input-lg,
+.form-control-static.input-sm {
+  /* Remove padding for larger and smaller inputs within form-control-static */
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* Styles for input-sm */
+.input-sm {
+  /* Define styles for small-sized inputs */
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+/* Styles for select input-sm */
+select.input-sm {
+  /* Align styles with small-sized select inputs */
+  height: 30px;
+  line-height: 30px;
+}
+
+/* Styles for textarea input-sm and select multiple input-sm */
+textarea.input-sm,
+select[multiple].input-sm {
+  /* Adjust height for textarea and multi-select in small size */
+  height: auto;
+}
+
+/* Styles for form group with form-control in small size */
+.form-group-sm .form-control {
+  /* Define styles for small-sized form control in a form group */
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+/* Styles for form group with select form-control in small size */
+.form-group-sm select.form-control {
+  /* Align styles with small-sized select inputs in a form group */
+  height: 30px;
+  line-height: 30px;
+}
+
+/* Styles for form group with textarea form-control and select multiple form-control in small size */
+.form-group-sm textarea.form-control,
+.form-group-sm select[multiple].form-control {
+  /* Adjust height for textarea and multi-select in small size within a form group */
+  height: auto;
+}
+
+/* Styles for form control static in small size */
+.form-group-sm .form-control-static {
+  /* Adjust styles for static form control in small size within a form group */
+  height: 30px;
+  min-height: 32px;
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Styles for input-lg */
+.input-lg {
+  /* Define styles for larger-sized inputs */
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+/* Styles for select input-lg */
+select.input-lg {
+  /* Align styles with larger-sized select inputs */
+  height: 46px;
+  line-height: 46px;
+}
+
+/* Styles for textarea input-lg and select multiple input-lg */
+textarea.input-lg,
+select[multiple].input-lg {
+  /* Adjust height for textarea and multi-select in large size */
+  height: auto;
+}
+
+/* Styles for form group with form-control in large size */
+.form-group-lg .form-control {
+  /* Define styles for larger-sized form control in a form group */
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+/* Styles for form group with select form-control in large size */
+.form-group-lg select.form-control {
+  /* Align styles with larger-sized select inputs in a form group */
+  height: 46px;
+  line-height: 46px;
+}
+
+/* Styles for form group with textarea form-control and select multiple form-control in large size */
+.form-group-lg textarea.form-control,
+.form-group-lg select[multiple].form-control {
+  /* Adjust height for textarea and multi-select in large size within a form group */
+  height: auto;
+}
+
+/* Styles for form control static in large size */
+.form-group-lg .form-control-static {
+  /* Adjust styles for static form control in large size within a form group */
+  height: 46px;
+  min-height: 38px;
+  padding: 11px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+}
+
+/* Styles for form feedback */
+.has-feedback {
+  /* Create a relative positioning context for the form feedback */
+  position: relative;
+}
+
+/* Styles for form control within has-feedback */
+.has-feedback .form-control {
+  /* Add space for feedback icon on the right */
+  padding-right: 42.5px;
+}
+
+/* Styles for form control feedback icon */
+.form-control-feedback {
+  /* Position and style the feedback icon */
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Styles for larger form control feedback icons */
+.input-lg + .form-control-feedback,
+.input-group-lg + .form-control-feedback,
+.form-group-lg .form-control + .form-control-feedback {
+  /* Adjust size for larger feedback icons */
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+}
+
+/* Styles for smaller form control feedback icons */
+.input-sm + .form-control-feedback,
+.input-group-sm + .form-control-feedback,
+.form-group-sm .form-control + .form-control-feedback {
+  /* Adjust size for smaller feedback icons */
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+
+/* Styles for success feedback state */
+.has-success .help-block,
+.has-success .control-label,
+.has-success .radio,
+.has-success .checkbox,
+.has-success .radio-inline,
+.has-success .checkbox-inline,
+.has-success.radio label,
+.has-success.checkbox label {
+  /* Set color for success state */
+  color: #3c763d;
+}
+
+.has-success .form-control {
+  /* Set border color and box shadow for success state */
+  border-color: #3c763d;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.has-success .form-control:focus {
+  /* Adjust focus state for success feedback */
+  border-color: #2b542c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+}
+
+.has-success .input-group-addon {
+  /* Set styles for success state feedback in input group addon */
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #3c763d;
+}
+
+.has-success .form-control-feedback {
+  /* Set color for success state feedback icon */
+  color: #3c763d;
+}
+
+/* Styles for warning feedback state */
+.has-warning .help-block,
+.has-warning .control-label,
+.has-warning .radio,
+.has-warning .checkbox,
+.has-warning .radio-inline,
+.has-warning .checkbox-inline,
+.has-warning.radio label,
+.has-warning.checkbox label {
+  /* Set color for warning state */
+  color: #8a6d3b;
+}
+
+.has-warning .form-control {
+  /* Set border color and box shadow for warning state */
+  border-color: #8a6d3b;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.has-warning .form-control:focus {
+  /* Adjust focus state for warning feedback */
+  border-color: #66512c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #c0a16b;
+}
+
+.has-warning .input-group-addon {
+  /* Set styles for warning state feedback in input group addon */
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #8a6d3b;
+}
+
+.has-warning .form-control-feedback {
+  /* Set color for warning state feedback icon */
+  color: #8a6d3b;
+}
+
+/* Styles for error feedback state */
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error.radio label,
+.has-error.checkbox label {
+  /* Set color for error state */
+  color: #a94442;
+}
+
+.has-error .form-control {
+  /* Set border color and box shadow for error state */
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.has-error .form-control:focus {
+  /* Adjust focus state for error feedback */
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+}
+
+.has-error .input-group-addon {
+  /* Set styles for error state feedback in input group addon */
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #a94442;
+}
+
+/* Styles for error feedback state icon color */
+.has-error .form-control-feedback {
+  color: #a94442;
+}
+
+/* Adjust top position for form control feedback icon */
+.has-feedback label ~ .form-control-feedback {
+  top: 25px;
+}
+
+/* Adjust top position for sr-only labeled form control feedback icon */
+.has-feedback label.sr-only ~ .form-control-feedback {
+  top: 0;
+}
+
+/* Styles for help block */
+.help-block {
+  /* Display as block with margin */
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373; /* Set text color */
+}
+
+/* Media query for form inline styles at minimum width 768px */
+@media (min-width: 768px) {
+  /* Form inline styles */
+  .form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  .form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+
+  .form-inline .form-control-static {
+    display: inline-block;
+  }
+
+  .form-inline .input-group {
+    display: inline-table;
+    vertical-align: middle;
+  }
+
+  .form-inline .input-group .input-group-addon,
+  .form-inline .input-group .input-group-btn,
+  .form-inline .input-group .form-control {
+    width: auto;
+  }
+
+  .form-inline .input-group > .form-control {
+    width: 100%;
+  }
+
+  .form-inline .control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  .form-inline .radio,
+  .form-inline .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  .form-inline .radio label,
+  .form-inline .checkbox label {
+    padding-left: 0;
+  }
+
+  .form-inline .radio input[type="radio"],
+  .form-inline .checkbox input[type="checkbox"] {
+    position: relative;
+    margin-left: 0;
+  }
+
+  .form-inline .has-feedback .form-control-feedback {
+    top: 0;
+  }
+}
+
+/* Styles for padding and margin of radio, checkbox, and form group in horizontal form */
+.form-horizontal .radio,
+.form-horizontal .checkbox,
+.form-horizontal .radio-inline,
+.form-horizontal .checkbox-inline {
+  padding-top: 7px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Styles for min-height of radio and checkbox in horizontal form */
+.form-horizontal .radio,
+.form-horizontal .checkbox {
+  min-height: 27px;
+}
+
+/* Styles for margin of form group in horizontal form */
+.form-horizontal .form-group {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* Media query for form control label styles at minimum width 768px */
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+  }
+}
+
+/* Styles for right position of form control feedback icon in horizontal form */
+.form-horizontal .has-feedback .form-control-feedback {
+  right: 15px;
+}
+
+/* Media query for larger font size of control label in horizontal form at minimum width 768px */
+@media (min-width: 768px) {
+  .form-horizontal .form-group-lg .control-label {
+    padding-top: 11px;
+    font-size: 18px;
+  }
+}
+
+/* Media query for smaller font size of control label in horizontal form at minimum width 768px */
+@media (min-width: 768px) {
+  .form-horizontal .form-group-sm .control-label {
+    padding-top: 6px;
+    font-size: 12px;
+  }
+}
+
+/* Styles for general button styles */
+.btn {
+  /* Display as inline block with padding and margin */
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+/* Focus styles for buttons */
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* Hover and focus styles for buttons */
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Active and focus styles for buttons */
+.btn:active,
+.btn.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+/* Disabled styles for buttons */
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: .65;
+}
+
+/* Disabled styles for links within disabled buttons */
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+/* Default button styles */
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+/* Focus and hover styles for default button */
+.btn-default:focus,
+.btn-default.focus {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #8c8c8c;
+}
+
+.btn-default:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+/* Active and focus styles for default button */
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+/* Active and focus styles for default button with hover */
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open > .dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open > .dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open > .dropdown-toggle.btn-default.focus {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+
+/* Disable active styles for default button */
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  background-image: none;
+}
+
+/* Disable hover and focus styles for default button */
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled.focus,
+.btn-default[disabled].focus,
+fieldset[disabled] .btn-default.focus {
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+/* Styles for badge inside default button */
+.btn-default .badge {
+  color: #fff;
+  background-color: #333;
+}
+
+/* Styles for primary button */
+.btn-primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* Primary button styles on focus and hover states */
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #286090;
+  border-color: #122b40;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+/* Primary button styles on active state and for dropdown toggle */
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  color: #fff;
+  background-color: #204d74;
+  border-color: #122b40;
+}
+
+/* Disable styles for primary button */
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+/* Styles for badge inside primary button */
+.btn-primary .badge {
+  color: #337ab7;
+  background-color: #fff;
+}
+
+/* Styles for success button */
+.btn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* Success button styles on focus and hover states */
+.btn-success:focus,
+.btn-success.focus {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #255625;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+}
+
+/* Success button styles on active state and for dropdown toggle */
+.btn-success:active,
+.btn-success.active,
+.open > .dropdown-toggle.btn-success {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+}
+
+.btn-success:active:hover,
+.btn-success.active:hover,
+.open > .dropdown-toggle.btn-success:hover,
+.btn-success:active:focus,
+.btn-success.active:focus,
+.open > .dropdown-toggle.btn-success:focus,
+.btn-success:active.focus,
+.btn-success.active.focus,
+.open > .dropdown-toggle.btn-success.focus {
+  color: #fff;
+  background-color: #398439;
+  border-color: #255625;
+}
+
+/* Disable styles for success button */
+.btn-success:active,
+.btn-success.active,
+.open > .dropdown-toggle.btn-success {
+  background-image: none;
+}
+
+.btn-success.disabled:hover,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success:hover,
+.btn-success.disabled:focus,
+.btn-success[disabled]:focus,
+fieldset[disabled] .btn-success:focus,
+.btn-success.disabled.focus,
+.btn-success[disabled].focus,
+fieldset[disabled] .btn-success.focus {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+/* Styles for badge inside success button */
+.btn-success .badge {
+  color: #5cb85c;
+  background-color: #fff;
+}
+
+/* Styles for info button */
+.btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* Info button styles on focus and hover states */
+.btn-info:focus,
+.btn-info.focus {
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #1b6d85;
+}
+
+.btn-info:hover {
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+
+/* Info button styles on active state and for dropdown toggle */
+.btn-info:active,
+.btn-info.active,
+.open > .dropdown-toggle.btn-info {
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+
+.btn-info:active:hover,
+.btn-info.active:hover,
+.open > .dropdown-toggle.btn-info:hover,
+.btn-info:active:focus,
+.btn-info.active:focus,
+.open > .dropdown-toggle.btn-info:focus,
+.btn-info:active.focus,
+.btn-info.active.focus,
+.open > .dropdown-toggle.btn-info.focus {
+  color: #fff;
+  background-color: #269abc;
+  border-color: #1b6d85;
+}
+
+/* Disable styles for info button */
+.btn-info:active,
+.btn-info.active,
+.open > .dropdown-toggle.btn-info {
+  background-image: none;
+}
+
+.btn-info.disabled:hover,
+.btn-info[disabled]:hover,
+fieldset[disabled] .btn-info:hover,
+.btn-info.disabled:focus,
+.btn-info[disabled]:focus,
+fieldset[disabled] .btn-info:focus,
+.btn-info.disabled.focus,
+.btn-info[disabled].focus,
+fieldset[disabled] .btn-info.focus {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+/* Styles for badge inside info button */
+.btn-info .badge {
+  color: #5bc0de;
+  background-color: #fff;
+}
+
+/* Styles for warning button */
+.btn-warning {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* Warning button styles on focus and hover states */
+.btn-warning:focus,
+.btn-warning.focus {
+  color: #fff;
+  background-color: #ec971f;
+  border-color: #985f0d;
+}
+
+.btn-warning:hover {
+  color: #fff;
+  background-color: #ec971f;
+  border-color: #d58512;
+}
+
+/* Warning button styles on active state and for dropdown toggle */
+.btn-warning:active,
+.btn-warning.active,
+.open > .dropdown-toggle.btn-warning {
+  color: #fff;
+  background-color: #ec971f;
+  border-color: #d58512;
+}
+
+.btn-warning:active:hover,
+.btn-warning.active:hover,
+.open > .dropdown-toggle.btn-warning:hover,
+.btn-warning:active:focus,
+.btn-warning.active:focus,
+.open > .dropdown-toggle.btn-warning:focus,
+.btn-warning:active.focus,
+.btn-warning.active.focus,
+.open > .dropdown-toggle.btn-warning.focus {
+  color: #fff;
+  background-color: #d58512;
+  border-color: #985f0d;
+}
+
+/* Disable styles for warning button */
+.btn-warning:active,
+.btn-warning.active,
+.open > .dropdown-toggle.btn-warning {
+  background-image: none;
+}
+
+.btn-warning.disabled:hover,
+.btn-warning[disabled]:hover,
+fieldset[disabled] .btn-warning:hover,
+.btn-warning.disabled:focus,
+.btn-warning[disabled]:focus,
+fieldset[disabled] .btn-warning:focus,
+.btn-warning.disabled.focus,
+.btn-warning[disabled].focus,
+fieldset[disabled] .btn-warning.focus {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+/* Styles for badge inside warning button */
+.btn-warning .badge {
+  color: #f0ad4e;
+  background-color: #fff;
+}
+
+/* Styles for danger button */
+.btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* Danger button styles on focus and hover states */
+.btn-danger:focus,
+.btn-danger.focus {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #761c19;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+/* Danger button styles on active state and for dropdown toggle */
+.btn-danger:active,
+.btn-danger.active,
+.open > .dropdown-toggle.btn-danger {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+.btn-danger:active:hover,
+.btn-danger.active:hover,
+.open > .dropdown-toggle.btn-danger:hover,
+.btn-danger:active:focus,
+.btn-danger.active:focus,
+.open > .dropdown-toggle.btn-danger:focus,
+.btn-danger:active.focus,
+.btn-danger.active.focus,
+.open > .dropdown-toggle.btn-danger.focus {
+  color: #fff;
+  background-color: #ac2925;
+  border-color: #761c19;
+}
+
+/* Disable styles for danger button */
+.btn-danger:active,
+.btn-danger.active,
+.open > .dropdown-toggle.btn-danger {
+  background-image: none;
+}
+
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:hover,
+fieldset[disabled] .btn-danger:hover,
+.btn-danger.disabled:focus,
+.btn-danger[disabled]:focus,
+fieldset[disabled] .btn-danger:focus,
+.btn-danger.disabled.focus,
+.btn-danger[disabled].focus,
+fieldset[disabled] .btn-danger.focus {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+/* Styles for badge inside danger button */
+.btn-danger .badge {
+  color: #d9534f;
+  background-color: #fff;
+}
+
+/* Styles for link button */
+.btn-link {
+  font-weight: normal;
+  color: #337ab7;
+  border-radius: 0;
+}
+
+/* Link button styles on active, focus, and disabled states */
+.btn-link,
+.btn-link:active,
+.btn-link.active,
+.btn-link[disabled],
+fieldset[disabled] .btn-link {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Additional styles for link button */
+.btn-link,
+.btn-link:hover,
+.btn-link:focus,
+.btn-link:active {
+  border-color: transparent;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  color: #23527c;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+.btn-link[disabled]:hover,
+fieldset[disabled] .btn-link:hover,
+.btn-link[disabled]:focus,
+fieldset[disabled] .btn-link:focus {
+  color: #777;
+  text-decoration: none;
+}
+
+/* Button size variations */
+.btn-lg,
+.btn-group-lg > .btn {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+.btn-sm,
+.btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.btn-xs,
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+/* Full-width block button */
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+/* Additional styles for input type submit, reset, and button as block elements */
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
+  width: 100%;
+}
+
+/* Styles for fade transition effect */
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+       -o-transition: opacity .15s linear;
+          transition: opacity .15s linear;
+}
+
+.fade.in {
+  opacity: 1;
+}
+
+/* Styles for collapse elements */
+.collapse {
+  display: none;
+}
+
+.collapse.in {
+  display: block;
+}
+
+tr.collapse.in {
+  display: table-row;
+}
+
+tbody.collapse.in {
+  display: table-row-group;
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-timing-function: ease;
+       -o-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transition-duration: .35s;
+       -o-transition-duration: .35s;
+          transition-duration: .35s;
+  -webkit-transition-property: height, visibility;
+       -o-transition-property: height, visibility;
+          transition-property: height, visibility;
+}
+
+/* Styles for caret in dropdowns */
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+/* Styles for dropdown and dropup elements */
+.dropup,
+.dropdown {
+  position: relative;
+}
+
+/* Remove focus outline for dropdown toggle */
+.dropdown-toggle:focus {
+  outline: 0;
+}
+
+/* Styles for dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+/* Styles for dropdown menu in right-aligned dropdowns */
+.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+
+/* Styles for divider in dropdown menu */
+.dropdown-menu .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+/* Styles for dropdown menu item */
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+
+/* Styles for active state in dropdown menu */
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #337ab7;
+  outline: 0;
+}
+
+/* Styles for disabled state in dropdown menu */
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  color: #777;
+}
+
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+  background-image: none;
+}
+
+/* Show dropdown menu when parent has open class */
+.open > .dropdown-menu {
+  display: block;
+}
+
+/* Remove outline for dropdown toggle when clicked */
+.open > a {
+  outline: 0;
+}
+
+/* Right-aligned dropdown menu */
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+
+/* Left-aligned dropdown menu */
+.dropdown-menu-left {
+  right: auto;
+  left: 0;
+}
+
+/* Styles for dropdown header */
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #777;
+  white-space: nowrap;
+}
+
+/* Styles for dropdown backdrop */
+.dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 990;
+}
+
+/* Styles for right-aligned dropdown menu */
+.pull-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+/* Styles for caret in dropup and bottom-fixed navbar dropdowns */
+.dropup .caret,
+.navbar-fixed-bottom .dropdown .caret {
+  content: "";
+  border-top: 0;
+  border-bottom: 4px dashed;
+  border-bottom: 4px solid \9; /* Solid fallback for IE9 and below */
+}
+
+/* Styles for dropup dropdown menu */
+.dropup .dropdown-menu,
+.navbar-fixed-bottom .dropdown .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 2px;
+}
+
+/* Media query for right-aligned dropdown menu in navbar */
+@media (min-width: 768px) {
+  .navbar-right .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+
+  .navbar-right .dropdown-menu-left {
+    right: auto;
+    left: 0;
+  }
+}
+
+/* Styles for button groups */
+.btn-group,
+.btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn-group > .btn,
+.btn-group-vertical > .btn {
+  position: relative;
+  float: left;
+}
+
+/* Z-index styles for button groups */
+.btn-group > .btn:hover,
+.btn-group-vertical > .btn:hover,
+.btn-group > .btn:focus,
+.btn-group-vertical > .btn:focus,
+.btn-group > .btn:active,
+.btn-group-vertical > .btn:active,
+.btn-group > .btn.active,
+.btn-group-vertical > .btn.active {
+  z-index: 2;
+}
+
+/* Margin styles for button groups */
+.btn-group .btn + .btn,
+.btn-group .btn + .btn-group,
+.btn-group .btn-group + .btn,
+.btn-group .btn-group + .btn-group {
+  margin-left: -1px;
+}
+
+/* Margin styles for button toolbar */
+.btn-toolbar {
+  margin-left: -5px;
+}
+
+.btn-toolbar .btn,
+.btn-toolbar .btn-group,
+.btn-toolbar .input-group {
+  float: left;
+}
+
+.btn-toolbar > .btn,
+.btn-toolbar > .btn-group,
+.btn-toolbar > .input-group {
+  margin-left: 5px;
+}
+
+/* Border radius styles for button groups */
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+
+.btn-group > .btn:first-child {
+  margin-left: 0;
+}
+
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn-group > .btn-group {
+  float: left;
+}
+
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Styles for active state in dropdowns */
+.btn-group .dropdown-toggle:active,
+.btn-group.open .dropdown-toggle {
+  outline: 0;
+}
+
+/* Padding styles for button groups */
+.btn-group > .btn + .dropdown-toggle {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.btn-group > .btn-lg + .dropdown-toggle {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+/* Box shadow styles for open dropdown */
+.btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+/* Box shadow styles for open dropdown with btn-link class */
+.btn-group.open .dropdown-toggle.btn-link {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/* Margin styles for caret in buttons */
+.btn .caret {
+  margin-left: 0;
+}
+
+/* Border width styles for large button caret */
+.btn-lg .caret {
+  border-width: 5px 5px 0;
+  border-bottom-width: 0;
+}
+
+/* Border width styles for dropup large button caret */
+.dropup .btn-lg .caret {
+  border-width: 0 5px 5px;
+}
+
+/* Styles for vertical button groups */
+.btn-group-vertical > .btn,
+.btn-group-vertical > .btn-group,
+.btn-group-vertical > .btn-group > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+}
+
+.btn-group-vertical > .btn-group > .btn {
+  float: none;
+}
+
+/* Margin and border radius styles for vertical button groups */
+.btn-group-vertical > .btn + .btn,
+.btn-group-vertical > .btn + .btn-group,
+.btn-group-vertical > .btn-group + .btn,
+.btn-group-vertical > .btn-group + .btn-group {
+  margin-top: -1px;
+  margin-left: 0;
+}
+
+.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Justified button group styles */
+.btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+
+.btn-group-justified > .btn,
+.btn-group-justified > .btn-group {
+  display: table-cell;
+  float: none;
+  width: 1%;
+}
+
+.btn-group-justified > .btn-group .btn {
+  width: 100%;
+}
+
+.btn-group-justified > .btn-group .dropdown-menu {
+  left: auto;
+}
+
+/* Styles for input group buttons within button groups */
+[data-toggle="buttons"] > .btn input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
+[data-toggle="buttons"] > .btn input[type="checkbox"],
+[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+/* Styles for input groups */
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+
+.input-group[class*="col-"] {
+  float: none;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.input-group .form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.input-group .form-control:focus {
+  z-index: 3;
+}
+
+/* Styles for large input groups */
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-addon,
+.input-group-lg > .input-group-btn > .btn {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+/* Styles for select within large input groups */
+select.input-group-lg > .form-control,
+select.input-group-lg > .input-group-addon,
+select.input-group-lg > .input-group-btn > .btn {
+  height: 46px;
+  line-height: 46px;
+}
+
+/* Styles for textarea and multiple select within large input groups */
+textarea.input-group-lg > .form-control,
+textarea.input-group-lg > .input-group-addon,
+textarea.input-group-lg > .input-group-btn > .btn,
+select[multiple].input-group-lg > .form-control,
+select[multiple].input-group-lg > .input-group-addon,
+select[multiple].input-group-lg > .input-group-btn > .btn {
+  height: auto;
+}
+
+/* Styles for small input groups */
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-addon,
+.input-group-sm > .input-group-btn > .btn {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+/* Styles for select within small input groups */
+select.input-group-sm > .form-control,
+select.input-group-sm > .input-group-addon,
+select.input-group-sm > .input-group-btn > .btn {
+  height: 30px;
+  line-height: 30px;
+}
+
+/* Styles for textarea and multiple select within small input groups */
+textarea.input-group-sm > .form-control,
+textarea.input-group-sm > .input-group-addon,
+textarea.input-group-sm > .input-group-btn > .btn,
+select[multiple].input-group-sm > .form-control,
+select[multiple].input-group-sm > .input-group-addon,
+select[multiple].input-group-sm > .input-group-btn > .btn {
+  height: auto;
+}
+
+/* Display styles for input group components */
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+  display: table-cell;
+}
+
+/* Border radius styles for input group components */
+.input-group-addon:not(:first-child):not(:last-child),
+.input-group-btn:not(:first-child):not(:last-child),
+.input-group .form-control:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+/* Width, white-space, and vertical-align styles for input group components */
+.input-group-addon,
+.input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Styles for input group addon */
+.input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #555;
+  text-align: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styles for small input group addon */
+.input-group-addon.input-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+/* Styles for large input group addon */
+.input-group-addon.input-lg {
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+/* Styles for input group addon input[type="radio"] and input[type="checkbox"] */
+.input-group-addon input[type="radio"],
+.input-group-addon input[type="checkbox"] {
+  margin-top: 0;
+}
+
+/* Border radius styles for first child and last child of input group components */
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Border radius styles for first child of input group components */
+.input-group-addon:first-child {
+  border-right: 0;
+}
+
+/* Border radius styles for last child of input group components */
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Border radius styles for last child of input group addon */
+.input-group-addon:last-child {
+  border-left: 0;
+}
+
+/* Positioning and font size styles for input group buttons */
+.input-group-btn {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
+}
+
+/* Positioning styles for input group button and margin between buttons */
+.input-group-btn > .btn {
+  position: relative;
+}
+
+.input-group-btn > .btn + .btn {
+  margin-left: -1px;
+}
+
+/* Z-index styles for input group button hover, focus, and active states */
+.input-group-btn > .btn:hover,
+.input-group-btn > .btn:focus,
+.input-group-btn > .btn:active {
+  z-index: 2;
+}
+
+/* Margin styles for first child and last child of input group button */
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group {
+  margin-right: -1px;
+}
+
+/* Z-index and margin styles for last child of input group button */
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group {
+  z-index: 2;
+  margin-left: -1px;
+}
+
+/* Padding, margin, and list-style styles for navigation */
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+/* Positioning and display styles for navigation list items */
+.nav > li {
+  position: relative;
+  display: block;
+}
+
+/* Positioning, display, and padding styles for navigation links */
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+/* Hover and focus styles for navigation links */
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+}
+
+/* Disabled state styles for navigation links */
+.nav > li.disabled > a {
+  color: #777;
+}
+
+/* Hover, focus, and disabled state styles for navigation links */
+.nav > li.disabled > a:hover,
+.nav > li.disabled > a:focus {
+  color: #777;
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+/* Open state styles for navigation links */
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: #eee;
+  border-color: #337ab7;
+}
+
+/* Divider styles for navigation */
+.nav .nav-divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+/* Styles for navigation links containing images */
+.nav > li > a > img {
+  max-width: none;
+}
+
+/* Border styles for navigation tabs */
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Float, margin, and border styles for navigation tab list items */
+.nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+
+/* Margin and line height styles for navigation tab links */
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Hover styles for navigation tab links */
+.nav-tabs > li > a:hover {
+  border-color: #eee #eee #ddd;
+}
+
+/* Active state styles for navigation tab links */
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+
+/* Justified styles for navigation tabs */
+.nav-tabs.nav-justified {
+  width: 100%;
+  border-bottom: 0;
+}
+
+/* Float and width styles for justified navigation tab list items */
+.nav-tabs.nav-justified > li {
+  float: none;
+}
+
+/* Margin and text alignment styles for justified navigation tab links */
+.nav-tabs.nav-justified > li > a {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* Position styles for justified navigation tab dropdown menu */
+.nav-tabs.nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+
+/* Media query for screens with a minimum width of 768px */
+@media (min-width: 768px) {
+  /* Display styles for justified navigation tabs on larger screens */
+  .nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+
+  /* Margin styles for justified navigation tab links on larger screens */
+  .nav-tabs.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+
+/* Margin, border radius, and border styles for navigation tab links */
+.nav-tabs.nav-justified > li > a {
+  margin-right: 0;
+  border-radius: 4px;
+}
+
+/* Border styles for active state of justified navigation tab links */
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > .active > a:focus {
+  border: 1px solid #ddd;
+}
+
+/* Media query for screens with a minimum width of 768px */
+@media (min-width: 768px) {
+  /* Border bottom and border radius styles for navigation tab links on larger screens */
+  .nav-tabs.nav-justified > li > a {
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+  }
+
+  /* Border bottom color styles for active state of justified navigation tab links on larger screens */
+  .nav-tabs.nav-justified > .active > a,
+  .nav-tabs.nav-justified > .active > a:hover,
+  .nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #fff;
+  }
+}
+
+/* Navigation Pills */
+.nav-pills > li {
+  float: left; /* Arrange list items horizontally */
+}
+.nav-pills > li > a {
+  border-radius: 4px; /* Rounded corners for pill links */
+}
+.nav-pills > li + li {
+  margin-left: 2px; /* Add spacing between pill items */
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: #fff; /* Text color for active pill */
+  background-color: #337ab7; /* Background color for active pill */
+}
+
+/* Stacked Navigation */
+.nav-stacked > li {
+  float: none; /* Reset stacking for list items */
+}
+.nav-stacked > li + li {
+  margin-top: 2px; /* Add spacing between stacked items */
+  margin-left: 0;
+}
+
+/* Justified Navigation */
+.nav-justified {
+  width: 100%; /* Full width for justified navigation */
+}
+.nav-justified > li {
+  float: none; /* Reset floating for justified items */
+}
+.nav-justified > li > a {
+  margin-bottom: 5px; /* Spacing between justified links */
+  text-align: center; /* Center align justified links */
+}
+.nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+@media (min-width: 768px) {
+  .nav-justified > li {
+    display: table-cell; /* Display justified items as table cells */
+    width: 1%;
+  }
+  .nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+
+/* Justified Tab Navigation */
+.nav-tabs-justified {
+  border-bottom: 0; /* Remove border from justified tabs */
+}
+.nav-tabs-justified > li > a {
+  margin-right: 0; /* Remove right margin for justified tabs */
+  border-radius: 4px; /* Rounded corners for justified tabs */
+}
+.nav-tabs-justified > .active > a,
+.nav-tabs-justified > .active > a:hover,
+.nav-tabs-justified > .active > a:focus {
+  border: 1px solid #ddd; /* Border for active justified tab */
+}
+@media (min-width: 768px) {
+  .nav-tabs-justified > li > a {
+    border-bottom: 1px solid #ddd; /* Border for justified tabs */
+    border-radius: 4px 4px 0 0; /* Rounded corners for justified tabs */
+  }
+  .nav-tabs-justified > .active > a,
+  .nav-tabs-justified > .active > a:hover,
+  .nav-tabs-justified > .active > a:focus {
+    border-bottom-color: #fff; /* Border color for active justified tab */
+  }
+}
+
+/* Tab Content */
+.tab-content > .tab-pane {
+  display: none; /* Hide tab content by default */
+}
+.tab-content > .active {
+  display: block; /* Display active tab content */
+}
+
+/* Navigation Bar and Collapse */
+.navbar {
+  position: relative; /* Set position relative for the navbar */
+  min-height: 50px; /* Set minimum height for the navbar */
+  margin-bottom: 20px; /* Add margin to bottom of the navbar */
+  border: 1px solid transparent; /* Set transparent border initially */
+}
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 4px; /* Rounded corners for the navbar */
+  }
+}
+@media (min-width: 768px) {
+  .navbar-header {
+    float: left; /* Float navbar header to the left */
+  }
+}
+.navbar-collapse {
+  padding-right: 15px; /* Add padding to the right of the navbar collapse */
+  padding-left: 15px; /* Add padding to the left of the navbar collapse */
+  overflow-x: visible; /* Set overflow-x to visible for touch scrolling */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling for WebKit */
+  border-top: 1px solid transparent; /* Set transparent border initially */
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1); /* Add shadow to navbar */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1); /* Add shadow to navbar */
+}
+.navbar-collapse.in {
+  overflow-y: auto; /* Enable vertical overflow for expanded navbar */
+}
+@media (min-width: 768px) {
+  .navbar-collapse {
+    width: auto; /* Auto width for larger screens */
+    border-top: 0; /* Remove top border for larger screens */
+    -webkit-box-shadow: none; /* Remove shadow for larger screens */
+    box-shadow: none; /* Remove shadow for larger screens */
+  }
+  .navbar-collapse.collapse {
+    display: block !important; /* Display block for collapsed navbar */
+    height: auto !important; /* Auto height for collapsed navbar */
+    padding-bottom: 0; /* Remove padding at the bottom for collapsed navbar */
+    overflow: visible !important; /* Enable overflow for collapsed navbar */
+  }
+  .navbar-collapse.in {
+    overflow-y: visible; /* Enable vertical overflow for expanded navbar */
+  }
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-static-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    padding-right: 0; /* Remove right padding for fixed and static navbars */
+    padding-left: 0; /* Remove left padding for fixed and static navbars */
+  }
+}
+.navbar-fixed-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse {
+  max-height: 340px; /* Set max height for fixed top and bottom navbars */
+}
+@media (max-device-width: 480px) and (orientation: landscape) {
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    max-height: 200px; /* Set max height for landscape orientation on small devices */
+  }
+}
+
+/* Container Styles for Navigation Bar */
+.container > .navbar-header,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse,
+.container-fluid > .navbar-collapse {
+  margin-right: -15px; /* Adjust right margin for container */
+  margin-left: -15px; /* Adjust left margin for container */
+}
+@media (min-width: 768px) {
+  .container > .navbar-header,
+  .container-fluid > .navbar-header,
+  .container > .navbar-collapse,
+  .container-fluid > .navbar-collapse {
+    margin-right: 0; /* Reset right margin for larger screens */
+    margin-left: 0; /* Reset left margin for larger screens */
+  }
+}
+
+/* Styles for Static and Fixed Navigation Bar */
+.navbar-static-top {
+  z-index: 1000; /* Set stacking order for static top navbar */
+  border-width: 0 0 1px; /* Set bottom border for static top navbar */
+}
+@media (min-width: 768px) {
+  .navbar-static-top {
+    border-radius: 0; /* Reset border-radius for larger screens */
+  }
+}
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed; /* Set position fixed for fixed top and bottom navbars */
+  right: 0;
+  left: 0;
+  z-index: 1030; /* Set stacking order for fixed top and bottom navbars */
+}
+@media (min-width: 768px) {
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    border-radius: 0; /* Reset border-radius for larger screens */
+  }
+}
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px; /* Set bottom border for fixed top navbar */
+}
+.navbar-fixed-bottom {
+  bottom: 0;
+  margin-bottom: 0;
+  border-width: 1px 0 0; /* Set top border for fixed bottom navbar */
+}
+
+/* Styles for Navbar Brand */
+.navbar-brand {
+  float: left; /* Float navbar brand to the left */
+  height: 50px; /* Set height for navbar brand */
+  padding: 15px 15px; /* Set padding for navbar brand */
+  font-size: 18px; /* Set font size for navbar brand */
+  line-height: 20px; /* Set line height for navbar brand */
+}
+.navbar-brand:hover,
+.navbar-brand:focus {
+  text-decoration: none; /* Remove text decoration on hover or focus */
+}
+.navbar-brand > img {
+  display: block; /* Display block for navbar brand image */
+}
+@media (min-width: 768px) {
+  .navbar > .container .navbar-brand,
+  .navbar > .container-fluid .navbar-brand {
+    margin-left: -15px; /* Adjust margin for container */
+  }
+}
+
+/* Navbar Toggle Button */
+.navbar-toggle {
+  position: relative; /* Set position relative for toggle button */
+  float: right; /* Float toggle button to the right */
+  padding: 9px 10px; /* Set padding for toggle button */
+  margin-top: 8px; /* Set top margin for toggle button */
+  margin-right: 15px; /* Set right margin for toggle button */
+  margin-bottom: 8px; /* Set bottom margin for toggle button */
+  background-color: transparent; /* Set transparent background initially */
+  background-image: none; /* Remove background image */
+  border: 1px solid transparent; /* Set transparent border initially */
+  border-radius: 4px; /* Rounded corners for toggle button */
+}
+.navbar-toggle:focus {
+  outline: 0; /* Remove focus outline */
+}
+.navbar-toggle .icon-bar {
+  display: block; /* Display block for icon bars */
+  width: 22px; /* Set width for icon bars */
+  height: 2px; /* Set height for icon bars */
+  border-radius: 1px; /* Rounded corners for icon bars */
+}
+.navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 4px; /* Set top margin for second icon bar */
+}
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: none; /* Hide toggle button for larger screens */
+  }
+}
+
+/* Navbar Navigation */
+.navbar-nav {
+  margin: 7.5px -15px; /* Adjust margins for navbar navigation */
+}
+.navbar-nav > li > a {
+  padding-top: 10px; /* Set top padding for navbar link */
+  padding-bottom: 10px; /* Set bottom padding for navbar link */
+  line-height: 20px; /* Set line height for navbar link */
+}
+@media (max-width: 767px) {
+  .navbar-nav .open .dropdown-menu {
+    position: static; /* Set static position for open dropdown menu */
+    float: none; /* Reset float for open dropdown menu */
+    width: auto; /* Auto width for open dropdown menu */
+    margin-top: 0; /* Reset top margin for open dropdown menu */
+    background-color: transparent; /* Set transparent background for open dropdown menu */
+    border: 0; /* Remove border for open dropdown menu */
+    -webkit-box-shadow: none; /* Remove box shadow for open dropdown menu */
+            box-shadow: none; /* Remove box shadow for open dropdown menu */
+  }
+  .navbar-nav .open .dropdown-menu > li > a,
+  .navbar-nav .open .dropdown-menu .dropdown-header {
+    padding: 5px 15px 5px 25px; /* Adjust padding for dropdown items */
+  }
+  .navbar-nav .open .dropdown-menu > li > a {
+    line-height: 20px; /* Adjust line height for dropdown items */
+  }
+  .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-image: none; /* Remove background image on hover or focus */
+  }
+}
+@media (min-width: 768px) {
+  .navbar-nav {
+    float: left; /* Float navbar navigation to the left */
+    margin: 0; /* Reset margin for larger screens */
+  }
+  .navbar-nav > li {
+    float: left; /* Float navbar navigation items to the left */
+  }
+  .navbar-nav > li > a {
+    padding-top: 15px; /* Set top padding for navbar link on larger screens */
+    padding-bottom: 15px; /* Set bottom padding for navbar link on larger screens */
+  }
+}
+
+/* Navbar Form */
+.navbar-form {
+  padding: 10px 15px; /* Set padding for navbar form */
+  margin-top: 8px; /* Set top margin for navbar form */
+  margin-right: -15px; /* Set right margin for navbar form */
+  margin-bottom: 8px; /* Set bottom margin for navbar form */
+  margin-left: -15px; /* Set left margin for navbar form */
+  border-top: 1px solid transparent; /* Set transparent top border for navbar form */
+  border-bottom: 1px solid transparent; /* Set transparent bottom border for navbar form */
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1); /* Add box shadow for navbar form */
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1); /* Add box shadow for navbar form */
+}
+@media (min-width: 768px) {
+  .navbar-form .form-group {
+    display: inline-block; /* Display form group as inline block */
+    margin-bottom: 0; /* Reset bottom margin for form group */
+    vertical-align: middle; /* Align form group vertically in the middle */
+  }
+  .navbar-form .form-control {
+    display: inline-block; /* Display form control as inline block */
+    width: auto; /* Auto width for form control */
+    vertical-align: middle; /* Align form control vertically in the middle */
+  }
+  .navbar-form .form-control-static {
+    display: inline-block; /* Display form control static as inline block */
+  }
+  .navbar-form .input-group {
+    display: inline-table; /* Display input group as inline table */
+    vertical-align: middle; /* Align input group vertically in the middle */
+  }
+  .navbar-form .input-group .input-group-addon,
+  .navbar-form .input-group .input-group-btn,
+  .navbar-form .input-group .form-control {
+    width: auto; /* Auto width for input group elements */
+  }
+  .navbar-form .input-group > .form-control {
+    width: 100%; /* Full width for input group form control */
+  }
+  .navbar-form .control-label {
+    margin-bottom: 0; /* Reset bottom margin for control label */
+    vertical-align: middle; /* Align control label vertically in the middle */
+  }
+  .navbar-form .radio,
+  .navbar-form .checkbox {
+    display: inline-block; /* Display radio and checkbox as inline block */
+    margin-top: 0; /* Reset top margin for radio and checkbox */
+    margin-bottom: 0; /* Reset bottom margin for radio and checkbox */
+    vertical-align: middle; /* Align radio and checkbox vertically in the middle */
+  }
+  .navbar-form .radio label,
+  .navbar-form .checkbox label {
+    padding-left: 0; /* Reset left padding for radio and checkbox label */
+  }
+  .navbar-form .radio input[type="radio"],
+  .navbar-form .checkbox input[type="checkbox"] {
+    position: relative; /* Set relative position for radio and checkbox input */
+    margin-left: 0; /* Reset left margin for radio and checkbox input */
+  }
+  .navbar-form .has-feedback .form-control-feedback {
+    top: 0; /* Set top position for form control feedback */
+  }
+}
+@media (max-width: 767px) {
+  .navbar-form .form-group {
+    margin-bottom: 5px; /* Adjust bottom margin for form group on smaller screens */
+  }
+  .navbar-form .form-group:last-child {
+    margin-bottom: 0; /* Remove bottom margin for last form group item on smaller screens */
+  }
+}
+@media (min-width: 768px) {
+  .navbar-form {
+    width: auto; /* Auto width for navbar form on larger screens */
+    padding-top: 0; /* Remove top padding for navbar form on larger screens */
+    padding-bottom: 0; /* Remove bottom padding for navbar form on larger screens */
+    margin-right: 0; /* Remove right margin for navbar form on larger screens */
+    margin-left: 0; /* Remove left margin for navbar form on larger screens */
+    border: 0; /* Remove border for navbar form on larger screens */
+    -webkit-box-shadow: none; /* Remove box shadow for navbar form on larger screens */
+            box-shadow: none; /* Remove box shadow for navbar form on larger screens */
+  }
+}
+
+/* Navbar Navigation Dropdown Menu */
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 0; /* Reset top margin for dropdown menu */
+  border-top-left-radius: 0; /* Reset border radius for top left corner of dropdown menu */
+  border-top-right-radius: 0; /* Reset border radius for top right corner of dropdown menu */
+}
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+  margin-bottom: 0; /* Reset bottom margin for dropdown menu in fixed bottom navbar */
+  border-top-left-radius: 4px; /* Set border radius for top left corner of dropdown menu in fixed bottom navbar */
+  border-top-right-radius: 4px; /* Set border radius for top right corner of dropdown menu in fixed bottom navbar */
+  border-bottom-right-radius: 0; /* Reset border radius for bottom right corner of dropdown menu in fixed bottom navbar */
+  border-bottom-left-radius: 0; /* Reset border radius for bottom left corner of dropdown menu in fixed bottom navbar */
+}
+
+/* Navbar Button */
+.navbar-btn {
+  margin-top: 8px; /* Set top margin for navbar button */
+  margin-bottom: 8px; /* Set bottom margin for navbar button */
+}
+.navbar-btn.btn-sm {
+  margin-top: 10px; /* Set top margin for small navbar button */
+  margin-bottom: 10px; /* Set bottom margin for small navbar button */
+}
+.navbar-btn.btn-xs {
+  margin-top: 14px; /* Set top margin for extra small navbar button */
+  margin-bottom: 14px; /* Set bottom margin for extra small navbar button */
+}
+
+/* Navbar Text */
+.navbar-text {
+  margin-top: 15px; /* Set top margin for navbar text */
+  margin-bottom: 15px; /* Set bottom margin for navbar text */
+}
+@media (min-width: 768px) {
+  .navbar-text {
+    float: left; /* Float navbar text to the left on larger screens */
+    margin-right: 15px; /* Set right margin for navbar text on larger screens */
+    margin-left: 15px; /* Set left margin for navbar text on larger screens */
+  }
+}
+
+/* Navbar Left and Right Align */
+@media (min-width: 768px) {
+  .navbar-left {
+    float: left !important; /* Float navbar left align to the left on larger screens */
+  }
+  .navbar-right {
+    float: right !important; /* Float navbar right align to the right on larger screens */
+    margin-right: -15px; /* Set negative right margin for navbar right align on larger screens */
+  }
+  .navbar-right ~ .navbar-right {
+    margin-right: 0; /* Reset right margin for adjacent navbar right align on larger screens */
+  }
+}
+
+/* Navbar Default Style */
+.navbar-default {
+  background-color: #f8f8f8; /* Set background color for default navbar */
+  border-color: #e7e7e7; /* Set border color for default navbar */
+}
+
+/* Navbar Brand Style */
+.navbar-default .navbar-brand {
+  color: #777; /* Set color for navbar brand */
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #5e5e5e; /* Set color on hover or focus for navbar brand */
+  background-color: transparent; /* Set transparent background on hover or focus for navbar brand */
+}
+
+/* Navbar Text Style */
+.navbar-default .navbar-text {
+  color: #777; /* Set color for navbar text */
+}
+
+/* Navbar Navigation Link Style */
+.navbar-default .navbar-nav > li > a {
+  color: #777; /* Set color for navbar navigation link */
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #333; /* Set color on hover or focus for navbar navigation link */
+  background-color: transparent; /* Set transparent background on hover or focus for navbar navigation link */
+}
+
+/* Active Navbar Navigation Link Style */
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #555; /* Set color for active navbar navigation link */
+  background-color: #e7e7e7; /* Set background color for active navbar navigation link */
+}
+
+/* Disabled Navbar Navigation Link Style */
+.navbar-default .navbar-nav > .disabled > a,
+.navbar-default .navbar-nav > .disabled > a:hover,
+.navbar-default .navbar-nav > .disabled > a:focus {
+  color: #ccc; /* Set color for disabled navbar navigation link */
+  background-color: transparent; /* Set transparent background for disabled navbar navigation link */
+}
+
+/* Navbar Toggle Button Style */
+.navbar-default .navbar-toggle {
+  border-color: #ddd; /* Set border color for navbar toggle button */
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #ddd; /* Set background color on hover or focus for navbar toggle button */
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #888; /* Set background color for icon bars in navbar toggle button */
+}
+
+/* Navbar Collapse and Form Style */
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #e7e7e7; /* Set border color for navbar collapse and form */
+}
+
+/* Opened Navbar Navigation Dropdown Menu Style */
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #555; /* Set color for opened navbar navigation dropdown menu link */
+  background-color: #e7e7e7; /* Set background color for opened navbar navigation dropdown menu link */
+}
+
+/* Breadcrumb Style */
+.breadcrumb {
+  padding: 8px 15px; /* Set padding for breadcrumb */
+  margin-bottom: 20px; /* Set bottom margin for breadcrumb */
+  list-style: none; /* Remove list style for breadcrumb */
+  background-color: #f5f5f5; /* Set background color for breadcrumb */
+  border-radius: 4px; /* Set border radius for breadcrumb */
+}
+
+.breadcrumb > li {
+  display: inline-block; /* Display breadcrumb items as inline-block */
+}
+
+.breadcrumb > li + li:before {
+  padding: 0 5px; /* Set padding between breadcrumb items */
+  color: #ccc; /* Set color for breadcrumb separator */
+  content: "/\00a0"; /* Set content for breadcrumb separator */
+}
+
+.breadcrumb > .active {
+  color: #777; /* Set color for active breadcrumb item */
+}
+
+/* Pagination Style */
+.pagination {
+  display: inline-block; /* Display pagination as inline-block */
+  padding-left: 0; /* Remove left padding for pagination */
+  margin: 20px 0; /* Set margin for pagination */
+  border-radius: 4px; /* Set border radius for pagination */
+}
+
+.pagination > li {
+  display: inline; /* Display pagination items as inline */
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  position: relative; /* Set relative position for pagination items */
+  float: left; /* Float pagination items to the left */
+  padding: 6px 12px; /* Set padding for pagination items */
+  margin-left: -1px; /* Set left margin for pagination items */
+  line-height: 1.42857143; /* Set line height for pagination items */
+  color: #337ab7; /* Set color for pagination items */
+  text-decoration: none; /* Remove text decoration for pagination items */
+  background-color: #fff; /* Set background color for pagination items */
+  border: 1px solid #ddd; /* Set border for pagination items */
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0; /* Remove left margin for first pagination item */
+  border-top-left-radius: 4px; /* Set border radius for top left corner of pagination items */
+  border-bottom-left-radius: 4px; /* Set border radius for bottom left corner of pagination items */
+}
+
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-top-right-radius: 4px; /* Set border radius for top right corner of pagination items */
+  border-bottom-right-radius: 4px; /* Set border radius for bottom right corner of pagination items */
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  z-index: 2; /* Set z-index for pagination items on hover or focus */
+  color: #23527c; /* Set color on hover or focus for pagination items */
+  background-color: #eee; /* Set background color on hover or focus for pagination items */
+  border-color: #ddd; /* Set border color on hover or focus for pagination items */
+}
+
+/* Active State for Pagination Items */
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 3; /* Set z-index for active pagination items */
+  color: #fff; /* Set color for active pagination items */
+  cursor: default; /* Set cursor to default for active pagination items */
+  background-color: #337ab7; /* Set background color for active pagination items */
+  border-color: #337ab7; /* Set border color for active pagination items */
+}
+
+/* Disabled State for Pagination Items */
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777; /* Set color for disabled pagination items */
+  cursor: not-allowed; /* Set cursor to not-allowed for disabled pagination items */
+  background-color: #fff; /* Set background color for disabled pagination items */
+  border-color: #ddd; /* Set border color for disabled pagination items */
+}
+
+/* Large Size for Pagination Items */
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+  padding: 10px 16px; /* Set padding for large pagination items */
+  font-size: 18px; /* Set font size for large pagination items */
+  line-height: 1.3333333; /* Set line height for large pagination items */
+}
+
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+  border-top-left-radius: 6px; /* Set border radius for top left corner of large pagination items */
+  border-bottom-left-radius: 6px; /* Set border radius for bottom left corner of large pagination items */
+}
+
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+  border-top-right-radius: 6px; /* Set border radius for top right corner of large pagination items */
+  border-bottom-right-radius: 6px; /* Set border radius for bottom right corner of large pagination items */
+}
+
+/* Small Size for Pagination Items */
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+  padding: 5px 10px; /* Set padding for small pagination items */
+  font-size: 12px; /* Set font size for small pagination items */
+  line-height: 1.5; /* Set line height for small pagination items */
+}
+
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+  border-top-left-radius: 3px; /* Set border radius for top left corner of small pagination items */
+  border-bottom-left-radius: 3px; /* Set border radius for bottom left corner of small pagination items */
+}
+
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+  border-top-right-radius: 3px; /* Set border radius for top right corner of small pagination items */
+  border-bottom-right-radius: 3px; /* Set border radius for bottom right corner of small pagination items */
+}
+
+/* Pager Style */
+.pager {
+  padding-left: 0; /* Remove left padding for pager */
+  margin: 20px 0; /* Set margin for pager */
+  text-align: center; /* Set text alignment for pager */
+  list-style: none; /* Remove list style for pager */
+}
+
+.pager li {
+  display: inline; /* Display pager items as inline */
+}
+
+.pager li > a,
+.pager li > span {
+  display: inline-block; /* Display pager items as inline-block */
+  padding: 5px 14px; /* Set padding for pager items */
+  background-color: #fff; /* Set background color for pager items */
+  border: 1px solid #ddd; /* Set border for pager items */
+  border-radius: 15px; /* Set border radius for pager items */
+}
+
+.pager li > a:hover,
+.pager li > a:focus {
+  text-decoration: none; /* Remove text decoration on hover or focus for pager items */
+  background-color: #eee; /* Set background color on hover or focus for pager items */
+}
+
+.pager .next > a,
+.pager .next > span {
+  float: right; /* Float next pager item to the right */
+}
+
+.pager .previous > a,
+.pager .previous > span {
+  float: left; /* Float previous pager item to the left */
+}
+
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+  color: #777; /* Set color for disabled pager items */
+  cursor: not-allowed; /* Set cursor to not-allowed for disabled pager items */
+  background-color: #fff; /* Set background color for disabled pager items */
+}
+
+/* Label Style */
+.label {
+  display: inline; /* Display label as inline */
+  padding: .2em .6em .3em; /* Set padding for label */
+  font-size: 75%; /* Set font size for label */
+  font-weight: bold; /* Set font weight for label */
+  line-height: 1; /* Set line height for label */
+  color: #fff; /* Set color for label */
+  text-align: center; /* Set text alignment for label */
+  white-space: nowrap; /* Prevent wrapping for label */
+  vertical-align: baseline; /* Set vertical alignment for label */
+  border-radius: .25em; /* Set border radius for label */
+}
+
+a.label:hover,
+a.label:focus {
+  color: #fff; /* Set color on hover or focus for label */
+  text-decoration: none; /* Remove text decoration on hover or focus for label */
+  cursor: pointer; /* Set cursor to pointer on hover or focus for label */
+}
+
+.label:empty {
+  display: none; /* Hide empty labels */
+}
+
+.btn .label {
+  position: relative; /* Set relative position for label within button */
+  top: -1px; /* Set top position for label within button */
+}
+
+/* Default Label Style */
+.label-default {
+  background-color: #777; /* Set background color for default label */
+}
+
+.label-default[href]:hover,
+.label-default[href]:focus {
+  background-color: #5e5e5e; /* Set background color on hover or focus for default label */
+}
+
+/* Primary Label Style */
+.label-primary {
+  background-color: #337ab7; /* Set background color for primary label */
+}
+
+.label-primary[href]:hover,
+.label-primary[href]:focus {
+  background-color: #286090; /* Set background color on hover or focus for primary label */
+}
+
+/* Success Label Style */
+.label-success {
+  background-color: #5cb85c; /* Set background color for success label */
+}
+
+.label-success[href]:hover,
+.label-success[href]:focus {
+  background-color: #449d44; /* Set background color on hover or focus for success label */
+}
+
+/* Info Label Style */
+.label-info {
+  background-color: #5bc0de; /* Set background color for info label */
+}
+
+.label-info[href]:hover,
+.label-info[href]:focus {
+  background-color: #31b0d5; /* Set background color on hover or focus for info label */
+}
+
+/* Warning Label Style */
+.label-warning {
+  background-color: #f0ad4e; /* Set background color for warning label */
+}
+
+.label-warning[href]:hover,
+.label-warning[href]:focus {
+  background-color: #ec971f; /* Set background color on hover or focus for warning label */
+}
+
+/* Danger Label Style */
+.label-danger {
+  background-color: #d9534f; /* Set background color for danger label */
+}
+
+.label-danger[href]:hover,
+.label-danger[href]:focus {
+  background-color: #c9302c; /* Set background color on hover or focus for danger label */
+}
+
+/* Badge Style */
+.badge {
+  display: inline-block; /* Display badge as inline-block */
+  min-width: 10px; /* Set minimum width for badge */
+  padding: 3px 7px; /* Set padding for badge */
+  font-size: 12px; /* Set font size for badge */
+  font-weight: bold; /* Set font weight for badge */
+  line-height: 1; /* Set line height for badge */
+  color: #fff; /* Set color for badge */
+  text-align: center; /* Set text alignment for badge */
+  white-space: nowrap; /* Prevent wrapping for badge */
+  vertical-align: middle; /* Set vertical alignment for badge */
+  background-color: #777; /* Set background color for badge */
+  border-radius: 10px; /* Set border radius for badge */
+}
+
+.badge:empty {
+  display: none; /* Hide empty badges */
+}
+
+.btn .badge {
+  position: relative; /* Set relative position for badge within button */
+  top: -1px; /* Set top position for badge within button */
+}
+
+.btn-xs .badge,
+.btn-group-xs > .btn .badge {
+  top: 0; /* Set top position for extra small badge */
+  padding: 1px 5px; /* Set padding for extra small badge */
+}
+
+a.badge:hover,
+a.badge:focus {
+  color: #fff; /* Set color on hover or focus for badge */
+  text-decoration: none; /* Remove text decoration on hover or focus for badge */
+  cursor: pointer; /* Set cursor to pointer on hover or focus for badge */
+}
+
+/* Active State for Badges in List Group */
+.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge {
+  color: #337ab7; /* Set color for active badges in list group or nav pills */
+  background-color: #fff; /* Set background color for active badges in list group or nav pills */
+}
+
+/* Badge in List Group Item */
+.list-group-item > .badge {
+  float: right; /* Float badge to the right within list group item */
+}
+
+.list-group-item > .badge + .badge {
+  margin-right: 5px; /* Set right margin for multiple badges within list group item */
+}
+
+/* Badge in Nav Pills */
+.nav-pills > li > a > .badge {
+  margin-left: 3px; /* Set left margin for badge within nav pills */
+}
+
+/* Jumbotron Styles */
+.jumbotron {
+  padding-top: 30px; /* Set top padding for jumbotron */
+  padding-bottom: 30px; /* Set bottom padding for jumbotron */
+  margin-bottom: 30px; /* Set bottom margin for jumbotron */
+  color: inherit; /* Inherit text color for jumbotron */
+  background-color: #eee; /* Set background color for jumbotron */
+}
+
+.jumbotron h1,
+.jumbotron .h1 {
+  color: inherit; /* Inherit text color for h1 in jumbotron */
+}
+
+.jumbotron p {
+  margin-bottom: 15px; /* Set bottom margin for paragraphs in jumbotron */
+  font-size: 21px; /* Set font size for paragraphs in jumbotron */
+  font-weight: 200; /* Set font weight for paragraphs in jumbotron */
+}
+
+.jumbotron > hr {
+  border-top-color: #d5d5d5; /* Set top border color for hr in jumbotron */
+}
+
+.container .jumbotron,
+.container-fluid .jumbotron {
+  padding-right: 15px; /* Set right padding for jumbotron within container */
+  padding-left: 15px; /* Set left padding for jumbotron within container */
+  border-radius: 6px; /* Set border radius for jumbotron within container */
+}
+
+.jumbotron .container {
+  max-width: 100%; /* Set maximum width for container within jumbotron */
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding-top: 48px; /* Set top padding for jumbotron on larger screens */
+    padding-bottom: 48px; /* Set bottom padding for jumbotron on larger screens */
+  }
+
+  .container .jumbotron,
+  .container-fluid .jumbotron {
+    padding-right: 60px; /* Set right padding for jumbotron within container on larger screens */
+    padding-left: 60px; /* Set left padding for jumbotron within container on larger screens */
+  }
+
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 63px; /* Set font size for h1 in jumbotron on larger screens */
+  }
+}
+
+/* Thumbnail Styles */
+.thumbnail {
+  display: block; /* Display thumbnail as block */
+  padding: 4px; /* Set padding for thumbnail */
+  margin-bottom: 20px; /* Set bottom margin for thumbnail */
+  line-height: 1.42857143; /* Set line height for thumbnail */
+  background-color: #fff; /* Set background color for thumbnail */
+  border: 1px solid #ddd; /* Set border for thumbnail */
+  border-radius: 4px; /* Set border radius for thumbnail */
+  transition: border .2s ease-in-out; /* Set transition for border in thumbnail */
+}
+
+.thumbnail > img,
+.thumbnail a > img {
+  margin-right: auto; /* Set right margin for thumbnail image */
+  margin-left: auto; /* Set left margin for thumbnail image */
+}
+
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+  border-color: #337ab7; /* Set border color on hover, focus, or active state for thumbnail */
+}
+
+.thumbnail .caption {
+  padding: 9px; /* Set padding for caption within thumbnail */
+  color: #333; /* Set text color for caption within thumbnail */
+}
+
+/* Alert Styles */
+.alert {
+  padding: 15px; /* Set padding for alert */
+  margin-bottom: 20px; /* Set bottom margin for alert */
+  border: 1px solid transparent; /* Set border for alert */
+  border-radius: 4px; /* Set border radius for alert */
+}
+
+.alert h4 {
+  margin-top: 0; /* Set top margin for h4 within alert */
+  color: inherit; /* Inherit text color for h4 within alert */
+}
+
+.alert .alert-link {
+  font-weight: bold; /* Set font weight for alert link */
+}
+
+.alert > p,
+.alert > ul {
+  margin-bottom: 0; /* Set bottom margin for paragraphs and lists within alert */
+}
+
+.alert > p + p {
+  margin-top: 5px; /* Set top margin for paragraphs following paragraphs within alert */
+}
+
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: 35px; /* Set right padding for dismissable alert */
+}
+
+.alert-dismissable .close,
+.alert-dismissible .close {
+  position: relative; /* Set relative position for close button within dismissable alert */
+  top: -2px; /* Set top position for close button within dismissable alert */
+  right: -21px; /* Set right position for close button within dismissable alert */
+  color: inherit; /* Inherit text color for close button within dismissable alert */
+}
+
+/* Alert Color Styles */
+.alert-success {
+  color: #3c763d; /* Set text color for success alert */
+  background-color: #dff0d8; /* Set background color for success alert */
+  border-color: #d6e9c6; /* Set border color for success alert */
+}
+
+.alert-success hr {
+  border-top-color: #c9e2b3; /* Set top border color for hr within success alert */
+}
+
+.alert-success .alert-link {
+  color: #2b542c; /* Set text color for alert link within success alert */
+}
+
+.alert-info {
+  color: #31708f; /* Set text color for info alert */
+  background-color: #d9edf7; /* Set background color for info alert */
+  border-color: #bce8f1; /* Set border color for info alert */
+}
+
+.alert-info hr {
+  border-top-color: #a6e1ec; /* Set top border color for hr within info alert */
+}
+
+.alert-info .alert-link {
+  color: #245269; /* Set text color for alert link within info alert */
+}
+
+.alert-warning {
+  color: #8a6d3b; /* Set text color for warning alert */
+  background-color: #fcf8e3; /* Set background color for warning alert */
+  border-color: #faebcc; /* Set border color for warning alert */
+}
+
+.alert-warning hr {
+  border-top-color: #f7e1b5; /* Set top border color for hr within warning alert */
+}
+
+.alert-warning .alert-link {
+  color: #66512c; /* Set text color for alert link within warning alert */
+}
+
+.alert-danger {
+  color: #a94442; /* Set text color for danger alert */
+  background-color: #f2dede; /* Set background color for danger alert */
+  border-color: #ebccd1; /* Set border color for danger alert */
+}
+
+.alert-danger hr {
+  border-top-color: #e4b9c0; /* Set top border color for hr within danger alert */
+}
+
+.alert-danger .alert-link {
+  color: #843534; /* Set text color for alert link within danger alert */
+}
+
+/* Progress Bar Styles */
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@-o-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+.progress {
+  height: 20px; /* Set height for progress bar */
+  margin-bottom: 20px; /* Set bottom margin for progress bar */
+  overflow: hidden; /* Hide overflow for progress bar */
+  background-color: #f5f5f5; /* Set background color for progress bar */
+  border-radius: 4px; /* Set border radius for progress bar */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1); /* Set box shadow for progress bar */
+}
+
+.progress-bar {
+  float: left; /* Float progress bar to the left */
+  width: 0; /* Set initial width for progress bar */
+  height: 100%; /* Set height for progress bar */
+  font-size: 12px; /* Set font size for progress bar */
+  line-height: 20px; /* Set line height for progress bar */
+  color: #fff; /* Set text color for progress bar */
+  text-align: center; /* Set text alignment for progress bar */
+  background-color: #337ab7; /* Set background color for progress bar */
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15); /* Set box shadow for progress bar */
+  transition: width .6s ease; /* Set transition for width in progress bar */
+}
+
+/* Progress Bar Striped Styles */
+.progress-striped .progress-bar,
+.progress-bar-striped {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); /* Set background image for striped progress bar */
+  background-size: 40px 40px; /* Set background size for striped progress bar */
+}
+
+/* Active State for Progress Bar */
+.progress.active .progress-bar,
+.progress-bar.active {
+  animation: progress-bar-stripes 2s linear infinite; /* Set animation for active state in progress bar */
+}
+
+/* Progress Bar Color Styles */
+.progress-bar-success {
+  background-color: #5cb85c; /* Set background color for success progress bar */
+}
+
+.progress-striped .progress-bar-success {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); /* Set background image for striped success progress bar */
+}
+
+.progress-bar-info {
+  background-color: #5bc0de; /* Set background color for info progress bar */
+}
+
+.progress-striped .progress-bar-info {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); /* Set background image for striped info progress bar */
+}
+
+.progress-bar-warning {
+  background-color: #f0ad4e; /* Set background color for warning progress bar */
+}
+
+.progress-striped .progress-bar-warning {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); /* Set background image for striped warning progress bar */
+}
+
+/* Additional Progress Bar Color Styles */
+.progress-bar-danger {
+  background-color: #d9534f; /* Set background color for danger progress bar */
+}
+
+.progress-striped .progress-bar-danger {
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent); /* Set background image for striped danger progress bar */
+}
+
+/* Media Styles */
+.media {
+  margin-top: 15px; /* Set top margin for media */
+}
+
+.media:first-child {
+  margin-top: 0; /* Remove top margin for first-child media */
+}
+
+.media,
+.media-body {
+  overflow: hidden; /* Hide overflow for media and media body */
+  zoom: 1; /* Set zoom for media and media body */
+}
+
+.media-body {
+  width: 10000px; /* Set width for media body */
+}
+
+.media-object {
+  display: block; /* Display media object as block */
+}
+
+.media-object.img-thumbnail {
+  max-width: none; /* Remove max-width for thumbnail media object */
+}
+
+.media-right,
+.media > .pull-right {
+  padding-left: 10px; /* Set left padding for media right and pull-right */
+}
+
+.media-left,
+.media > .pull-left {
+  padding-right: 10px; /* Set right padding for media left and pull-left */
+}
+
+.media-left,
+.media-right,
+.media-body {
+  display: table-cell; /* Display media left, right, and body as table cell */
+  vertical-align: top; /* Set top vertical alignment for media left, right, and body */
+}
+
+.media-middle {
+  vertical-align: middle; /* Set middle vertical alignment for media */
+}
+
+.media-bottom {
+  vertical-align: bottom; /* Set bottom vertical alignment for media */
+}
+
+.media-heading {
+  margin-top: 0; /* Set top margin for media heading */
+  margin-bottom: 5px; /* Set bottom margin for media heading */
+}
+
+/* List Group Styles */
+.media-list {
+  padding-left: 0; /* Remove left padding for media list */
+  list-style: none; /* Remove list style for media list */
+}
+
+.list-group {
+  padding-left: 0; /* Remove left padding for list group */
+  margin-bottom: 20px; /* Set bottom margin for list group */
+}
+
+.list-group-item {
+  position: relative; /* Set relative position for list group item */
+  display: block; /* Display list group item as block */
+  padding: 10px 15px; /* Set padding for list group item */
+  margin-bottom: -1px; /* Set bottom margin for list group item */
+  background-color: #fff; /* Set background color for list group item */
+  border: 1px solid #ddd; /* Set border for list group item */
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 4px; /* Set top-left border radius for first-child list group item */
+  border-top-right-radius: 4px; /* Set top-right border radius for first-child list group item */
+}
+
+.list-group-item:last-child {
+  margin-bottom: 0; /* Remove bottom margin for last-child list group item */
+  border-bottom-right-radius: 4px; /* Set bottom-right border radius for last-child list group item */
+  border-bottom-left-radius: 4px; /* Set bottom-left border radius for last-child list group item */
+}
+
+a.list-group-item,
+button.list-group-item {
+  color: #555; /* Set text color for anchor and button list group items */
+}
+
+a.list-group-item .list-group-item-heading,
+button.list-group-item .list-group-item-heading {
+  color: #333; /* Set text color for heading in anchor and button list group items */
+}
+
+a.list-group-item:hover,
+button.list-group-item:hover,
+a.list-group-item:focus,
+button.list-group-item:focus {
+  color: #555; /* Set text color on hover, focus, or active state for anchor and button list group items */
+  text-decoration: none; /* Remove text decoration on hover, focus, or active state for anchor and button list group items */
+  background-color: #f5f5f5; /* Set background color on hover, focus, or active state for anchor and button list group items */
+}
+
+button.list-group-item {
+  width: 100%; /* Set width for button list group item */
+  text-align: left; /* Set left text alignment for button list group item */
+}
+
+.list-group-item.disabled,
+.list-group-item.disabled:hover,
+.list-group-item.disabled:focus {
+  color: #777; /* Set text color for disabled list group item */
+  cursor: not-allowed; /* Set cursor style for disabled list group item */
+  background-color: #eee; /* Set background color for disabled list group item */
+}
+
+.list-group-item.disabled .list-group-item-heading,
+.list-group-item.disabled:hover .list-group-item-heading,
+.list-group-item.disabled:focus .list-group-item-heading {
+  color: inherit; /* Inherit text color for heading in disabled list group item */
+}
+
+.list-group-item.disabled .list-group-item-text,
+.list-group-item.disabled:hover .list-group-item-text,
+.list-group-item.disabled:focus .list-group-item-text {
+  color: #777; /* Set text color for text in disabled list group item */
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  z-index: 2; /* Set z-index for active list group item */
+  color: #fff; /* Set text color for active list group item */
+  background-color: #337ab7; /* Set background color for active list group item */
+  border-color: #337ab7; /* Set border color for active list group item */
+}
+
+.list-group-item.active .list-group-item-heading,
+.list-group-item.active:hover .list-group-item-heading,
+.list-group-item.active:focus .list-group-item-heading,
+.list-group-item.active .list-group-item-heading > small,
+.list-group-item.active:hover .list-group-item-heading > small,
+.list-group-item.active:focus .list-group-item-heading > small,
+.list-group-item.active .list-group-item-heading > .small,
+.list-group-item.active:hover .list-group-item-heading > .small,
+.list-group-item.active:focus .list-group-item-heading > .small {
+  color: inherit; /* Inherit text color for heading in active list group item */
+}
+
+.list-group-item.active .list-group-item-text,
+.list-group-item.active:hover .list-group-item-text,
+.list-group-item.active:focus .list-group-item-text {
+  color: #c7ddef; /* Set text color for text in active list group item */
+}
+
+/* List Group Item Color Styles */
+.list-group-item-success {
+  color: #3c763d; /* Set text color for success list group item */
+  background-color: #dff0d8; /* Set background color for success list group item */
+}
+
+a.list-group-item-success,
+button.list-group-item-success {
+  color: #3c763d; /* Set text color for success anchor and button list group items */
+}
+
+a.list-group-item-success .list-group-item-heading,
+button.list-group-item-success .list-group-item-heading {
+  color: inherit; /* Inherit text color for heading in success anchor and button list group items */
+}
+
+a.list-group-item-success:hover,
+button.list-group-item-success:hover,
+a.list-group-item-success:focus,
+button.list-group-item-success:focus {
+  color: #3c763d; /* Set text color on hover, focus, or active state for success anchor and button list group items */
+  background-color: #d0e9c6; /* Set background color on hover, focus, or active state for success anchor and button list group items */
+}
+
+a.list-group-item-success.active,
+button.list-group-item-success.active,
+a.list-group-item-success.active:hover,
+button.list-group-item-success.active:hover,
+a.list-group-item-success.active:focus,
+button.list-group-item-success.active:focus {
+  color: #fff; /* Set text color for active success anchor and button list group items */
+  background-color: #3c763d; /* Set background color for active success anchor and button list group items */
+  border-color: #3c763d; /* Set border color for active success anchor and button list group items */
+}
+
+.list-group-item-info {
+  color: #31708f; /* Set text color for info list group item */
+  background-color: #d9edf7; /* Set background color for info list group item */
+}
+
+a.list-group-item-info,
+button.list-group-item-info {
+  color: #31708f; /* Set text color for info anchor and button list group items */
+}
+
+a.list-group-item-info .list-group-item-heading,
+button.list-group-item-info .list-group-item-heading {
+  color: inherit; /* Inherit text color for heading in info anchor and button list group items */
+}
+
+a.list-group-item-info:hover,
+button.list-group-item-info:hover,
+a.list-group-item-info:focus,
+button.list-group-item-info:focus {
+  color: #31708f; /* Set text color on hover, focus, or active state for info anchor and button list group items */
+  background-color: #c4e3f3; /* Set background color on hover, focus, or active state for info anchor and button list group items */
+}
+
+a.list-group-item-info.active,
+button.list-group-item-info.active,
+a.list-group-item-info.active:hover,
+button.list-group-item-info.active:hover,
+a.list-group-item-info.active:focus,
+button.list-group-item-info.active:focus {
+  color: #fff; /* Set text color for active info anchor and button list group items */
+  background-color: #31708f; /* Set background color for active info anchor and button list group items */
+  border-color: #31708f; /* Set border color for active info anchor and button list group items */
+}
+
+.list-group-item-warning {
+  color: #8a6d3b; /* Set text color for warning list group item */
+  background-color: #fcf8e3; /* Set background color for warning list group item */
+}
+
+a.list-group-item-warning,
+button.list-group-item-warning {
+  color: #8a6d3b; /* Set text color for warning anchor and button list group items */
+}
+
+a.list-group-item-warning .list-group-item-heading,
+button.list-group-item-warning .list-group-item-heading {
+  color: inherit; /* Inherit text color for heading in warning anchor and button list group items */
+}
+
+a.list-group-item-warning:hover,
+button.list-group-item-warning:hover,
+a.list-group-item-warning:focus,
+button.list-group-item-warning:focus {
+  color: #8a6d3b; /* Set text color on hover, focus, or active state for warning anchor and button list group items */
+  background-color: #faf2cc; /* Set background color on hover, focus, or active state for warning anchor and button list group items */
+}
+
+a.list-group-item-warning.active,
+button.list-group-item-warning.active,
+a.list-group-item-warning.active:hover,
+button.list-group-item-warning.active:hover,
+a.list-group-item-warning.active:focus,
+button.list-group-item-warning.active:focus {
+  color: #fff; /* Set text color for active warning anchor and button list group items */
+  background-color: #8a6d3b; /* Set background color for active warning anchor and button list group items */
+  border-color: #8a6d3b; /* Set border color for active warning anchor and button list group items */
+}
+
+.list-group-item-danger {
+  color: #a94442; /* Set text color for danger list group item */
+  background-color: #f2dede; /* Set background color for danger list group item */
+}
+
+a.list-group-item-danger,
+button.list-group-item-danger {
+  color: #a94442; /* Set text color for danger anchor and button list group items */
+}
+
+a.list-group-item-danger .list-group-item-heading,
+button.list-group-item-danger .list-group-item-heading {
+  color: inherit; /* Inherit text color for heading in danger anchor and button list group items */
+}
+
+a.list-group-item-danger:hover,
+button.list-group-item-danger:hover,
+a.list-group-item-danger:focus,
+button.list-group-item-danger:focus {
+  color: #a94442; /* Set text color on hover, focus, or active state for danger anchor and button list group items */
+  background-color: #ebcccc; /* Set background color on hover, focus, or active state for danger anchor and button list group items */
+}
+
+/* List Group Item Danger Active Styles */
+a.list-group-item-danger.active,
+button.list-group-item-danger.active,
+a.list-group-item-danger.active:hover,
+button.list-group-item-danger.active:hover,
+a.list-group-item-danger.active:focus,
+button.list-group-item-danger.active:focus {
+  color: #fff;
+  background-color: #a94442;
+  border-color: #a94442;
+}
+
+/* List Group Item Heading Styles */
+.list-group-item-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+/* List Group Item Text Styles */
+.list-group-item-text {
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+/* Panel Styles */
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+/* Panel Body Styles */
+.panel-body {
+  padding: 15px;
+}
+
+/* Panel Heading Styles */
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.panel-heading > .dropdown .dropdown-toggle {
+  color: inherit;
+}
+
+/* Panel Title Styles */
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: inherit;
+}
+
+.panel-title > a,
+.panel-title > small,
+.panel-title > .small,
+.panel-title > small > a,
+.panel-title > .small > a {
+  color: inherit;
+}
+
+/* Panel Footer Styles */
+.panel-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+/* Panel List Group Styles */
+.panel > .list-group,
+.panel > .panel-collapse > .list-group {
+  margin-bottom: 0;
+}
+
+.panel > .list-group .list-group-item,
+.panel > .panel-collapse > .list-group .list-group-item {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+
+.panel > .list-group:first-child .list-group-item:first-child,
+.panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
+  border-top: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.panel > .list-group:last-child .list-group-item:last-child,
+.panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+  border-bottom: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.panel-heading + .list-group .list-group-item:first-child {
+  border-top-width: 0;
+}
+
+.list-group + .panel-footer {
+  border-top-width: 0;
+}
+
+/* Panel Table Styles */
+.panel > .table,
+.panel > .table-responsive > .table,
+.panel > .panel-collapse > .table {
+  margin-bottom: 0;
+}
+
+.panel > .table caption,
+.panel > .table-responsive > .table caption,
+.panel > .panel-collapse > .table caption {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.panel > .table:first-child,
+.panel > .table-responsive:first-child > .table:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.panel > .table:first-child > thead:first-child > tr:first-child,
+.panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child,
+.panel > .table:first-child > tbody:first-child > tr:first-child,
+.panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.panel > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.panel > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+.panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+  border-top-left-radius: 3px;
+}
+
+.panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.panel > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.panel > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+.panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+  border-top-right-radius: 3px;
+}
+
+.panel > .table:last-child,
+.panel > .table-responsive:last-child > .table:last-child {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.panel > .table:last-child > tbody:last-child > tr:last-child,
+.panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
+.panel > .table:last-child > tfoot:last-child > tr:last-child,
+.panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.panel > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+.panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+  border-bottom-left-radius: 3px;
+}
+
+.panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.panel > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+.panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+  border-bottom-right-radius: 3px;
+}
+
+.panel > .panel-body + .table,
+.panel > .panel-body + .table-responsive,
+.panel > .table + .panel-body,
+.panel > .table-responsive + .panel-body {
+  border-top: 1px solid #ddd;
+}
+
+.panel > .table > tbody:first-child > tr:first-child th,
+.panel > .table > tbody:first-child > tr:first-child td {
+  border-top: 0;
+}
+
+/* Panel Table Bordered Styles */
+.panel > .table-bordered,
+.panel > .table-responsive > .table-bordered {
+  border: 0;
+}
+
+.panel > .table-bordered > thead > tr > th:first-child,
+.panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
+.panel > .table-bordered > tbody > tr > th:first-child,
+.panel > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+.panel > .table-bordered > tfoot > tr > th:first-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+.panel > .table-bordered > thead > tr > td:first-child,
+.panel > .table-responsive > .table-bordered > thead > tr > td:first-child,
+.panel > .table-bordered > tbody > tr > td:first-child,
+.panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+.panel > .table-bordered > tfoot > tr > td:first-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  border-left: 0;
+}
+
+.panel > .table-bordered > thead > tr > th:last-child,
+.panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
+.panel > .table-bordered > tbody > tr > th:last-child,
+.panel > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+.panel > .table-bordered > tfoot > tr > th:last-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+.panel > .table-bordered > thead > tr > td:last-child,
+.panel > .table-responsive > .table-bordered > thead > tr > td:last-child,
+.panel > .table-bordered > tbody > tr > td:last-child,
+.panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+.panel > .table-bordered > tfoot > tr > td:last-child,
+.panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  border-right: 0;
+}

@@ -1,0 +1,81 @@
+<!--
+  Tarun Shivakumar, Ashwath Kallam, Varun Wanjari
+  1/20/2024
+  HTML code defines the structure of a Minesweeper game webpage, 
+  including elements for title, difficulty selection buttons, game grid, bomb count display, 
+  reload button, and win/lose messages.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>  
+  <!-- Set character encoding for the document -->
+  <meta charset="utf-8">
+
+  <!-- Include jQuery library -->
+  <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+
+  <!-- Include custom scripts -->
+  <script src="js/scripts.js" type="text/javascript"></script>
+
+  <!-- Include Google Fonts - Orbitron -->
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:500" rel="stylesheet">
+
+  <!-- Include Bootstrap CSS file -->
+  <link rel="stylesheet" href="css/BoardStructure.css" media="screen" title="no title" charset="utf-8" type="text/css">
+
+  <!-- Include custom styles -->
+  <link rel="stylesheet" href="css/GameLayout.css" media="screen" title="no title" charset="utf-8" type="text/css">
+
+  <!-- Set the title of the document -->
+  <title>Minesweeper</title>
+</head>
+
+<body>
+  <!-- Screen Overlay Section -->
+  <div id="screen-overlay">
+    <!-- Jumbotron for Minesweeper title -->
+    <div class="jumbotron">
+      <h1>Minesweeper</h1>
+    </div>
+
+    <!-- Play Mode Section -->
+    <div id="play-mode">
+      <!-- Buttons for different difficulty levels -->
+      <button type="button" name="button" class="btn btn-lg btn-block levels" id="beginner">Beginner</button>
+      <button type="button" name="button" class="btn btn-lg btn-block levels" id="intermediate">Intermediate</button>
+      <button type="button" name="button" class="btn btn-lg btn-block levels" id="expert">Expert</button>
+    </div>
+  </div>
+
+  <!-- Final Jumbotron Section -->
+  <div class="jumbotron" id="final">
+    <h1>Minesweeper</h1>
+  </div>
+
+  <!-- Main Minesweeper Game Section -->
+  <div class="container">
+    <!-- Bomb Count Display Section -->
+    <div class="bomb-count">
+      <p id="show-bomb-count"></p>
+    </div>
+
+    <!-- Takes back to Home Page -->
+    <div class="reload">
+      <p id="reload-page">Home Page</p>
+    </div>
+
+    <!-- Minesweeper Game Container -->
+    <div class="minesweeper-game">
+      <!-- This is where the Minesweeper grid will be generated -->
+    </div>
+
+    <!-- Win/Lose Message Section -->
+    <div id="win-lose">
+      <span></span>
+    </div>
+  </div>
+</body>
+
+</html>

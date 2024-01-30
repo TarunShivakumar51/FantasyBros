@@ -1,0 +1,189 @@
+/*
+Tarun Shivakumar, Ashwath Kallam, Varun Wanjari
+1/17/2024
+CSS code that styles for the Minesweeper game interface, including custom fonts, background images, 
+overlay effects, difficulty levels, and game elements such as cells, flags, and bombs.
+*/
+
+/* Font declaration for Minecrafter font */
+@font-face {
+  font-family: 'Minecrafter';
+  src: url('../resources/Minecrafter.Reg.ttf') format('truetype');
+}
+
+/* Styling for the body */
+body {
+  background-color: #5C2041;
+  background-image: url(../images/pink.jpg);
+}
+
+/* Styling for the screen overlay */
+#screen-overlay {
+  position: absolute;
+  /*z-index: 90;*/
+  background-color: rgba(0, 0, 0, 0.44);
+  width: 100%;
+  height: 100%;
+}
+
+/* Styling for the play mode section */
+#play-mode {
+  font-size: 30px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: -8%;
+  background-color: rgba(78, 38, 60, .35);;
+  text-align: center;
+  border-radius: 5px;
+  padding: 30px;
+  z-index: 1001;
+  color: #fff;
+}
+
+/* Styling for the jumbotron */
+.jumbotron {
+  text-align: center;
+  color: white;
+  padding: 10em;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+/* Styling for jumbotron heading and win-lose section */
+.jumbotron h1, #win-lose {
+  font-family: "Minecrafter", "Courier New", monospace;
+  font-size: 100px;
+  text-shadow: 10px 10px rgba(26, 26, 26, 0.8);
+  z-index: 1000;
+}
+
+/* Styling for the final section */
+#final {
+  display: none;
+}
+
+/* Styling for the container */
+.container {
+  display: none;
+  /*border: 1px solid green;*/
+  padding: 0px;
+  width: 901px;
+  margin-top: -7%;
+  position: relative;
+}
+
+/* Styling for the minesweeper game */
+.minesweeper-game {
+  display: inline-block;
+  box-shadow: 8px 8px rgba(26, 26, 26, 0.7);
+  /*border: 1px solid blue;*/
+}
+
+/* Styling for different difficulty levels */
+.beginner {
+  margin: 0 314px;
+}
+
+.intermediate {
+  margin: 0 209px;
+}
+
+.expert {
+  margin: 0 119px;
+}
+
+/* Styling for level buttons */
+button.levels {
+  margin: 15px auto;
+  margin-top: 15px;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  background-color: #4e263c;
+  font-size: 25px;
+  padding-top: 16px;
+}
+
+button.levels:hover {
+  color: #bd4d31;
+}
+
+button.levels:active {
+  border: 0;
+}
+
+/* Styling for bomb-clicked class */
+.bomb-clicked {
+  background-image: url(../images/bomber.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Styling for flag class */
+.flag {
+  background-image: url(../images/flagor.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+/* Styling for row */
+.row {
+  margin: 0;
+}
+
+/* Styling for individual cell */
+.cell {
+  border: 1px solid #321c40;
+  background-color: rgb(98, 33, 63);
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  padding-top: 2px;
+  /*margin: 1px;*/
+  vertical-align: top;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Styling for clicked-on class */
+.clicked-on {
+  background-color: #4B3252;
+}
+
+/* Styling for bomb-count and reload-page */
+.bomb-count, #reload-page {
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  font-size: 24px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+/* Styling for bomb-count */
+.bomb-count {
+  margin-bottom: -5px;
+}
+
+/* Styling for reload-page */
+#reload-page {
+  float: right;
+  margin-top: -40px;
+}
+
+#reload-page:hover {
+  color: #bd4d31;
+  cursor: pointer;
+}
+
+/* Styling for win-lose section */
+#win-lose {
+  display: none;
+  text-align: center;
+  font-family: "Minecrafter", "Courier New", monospace;
+  font-size: 72px;
+  text-shadow: 10px 10px rgba(26, 26, 26, 0.8);
+  z-index: 1000;
+  color: white;
+}
